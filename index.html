@@ -1,0 +1,565 @@
+<div id="mm-root"></div>
+<style>
+  #mm-root {
+    --paper: #F7F2E7;
+    --paper-line: #E4DAC4;
+    --ink: #1F2A3C;
+    --ink-soft: #55627A;
+    --accent: #B3492E;
+    --accent-soft: #F0D9CE;
+    --ring: #C9BFA5;
+
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    background-image: repeating-linear-gradient(
+      to bottom, transparent, transparent 27px, var(--paper-line) 28px
+    );
+    padding: 36px 24px 60px;
+    min-height: 100%;
+    box-sizing: border-box;
+  }
+  #mm-root * { box-sizing: border-box; }
+
+  .mm-wrap { max-width: 980px; margin: 0 auto; }
+
+  .mm-head { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+  .mm-rings { display: flex; gap: 6px; flex-shrink: 0; }
+  .mm-ring {
+    width: 16px; height: 16px; border-radius: 50%;
+    border: 3px solid var(--ring); background: var(--paper);
+  }
+  .mm-title {
+    font-size: 30px; font-weight: 700; margin: 0; letter-spacing: -0.01em;
+  }
+  .mm-sub {
+    font-size: 14.5px; color: var(--ink-soft); margin: 6px 0 30px 38px; max-width: 46ch;
+  }
+
+  .mm-grid-layout {
+    display: grid;
+    grid-template-columns: minmax(260px, 380px) 1fr;
+    gap: 26px;
+  }
+  @media (max-width: 760px) {
+    .mm-grid-layout { grid-template-columns: 1fr; }
+  }
+
+  .mm-panel {
+    background: #FFFEFB;
+    border: 2px solid var(--ink);
+    box-shadow: 6px 6px 0 var(--ink);
+    padding: 22px;
+  }
+
+  .mm-field { margin-bottom: 18px; }
+  .mm-label {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 13.5px; font-weight: 700; margin-bottom: 7px;
+  }
+  .mm-count { font-weight: 400; color: var(--ink-soft); font-size: 12.5px; }
+
+  .mm-input, .mm-textarea {
+    width: 100%; border: 1.5px solid var(--ring); background: var(--paper);
+    font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: var(--ink);
+    padding: 10px 11px; border-radius: 3px;
+  }
+  .mm-input:focus, .mm-textarea:focus, .mm-num:focus {
+    outline: none; border-color: var(--ink);
+  }
+  .mm-textarea { resize: vertical; min-height: 220px; line-height: 1.6; }
+
+  .mm-size-row { display: flex; align-items: center; gap: 10px; }
+  .mm-num {
+    width: 70px; border: 1.5px solid var(--ring); background: var(--paper);
+    font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: var(--ink);
+    padding: 8px 10px; border-radius: 3px;
+  }
+  .mm-size-hint { font-size: 12px; color: var(--ink-soft); }
+
+  .mm-btn {
+    display: block; width: 100%; border: 2px solid var(--ink); background: var(--accent);
+    color: #FFF9F4; font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    font-size: 15px; padding: 13px 16px; cursor: pointer;
+    box-shadow: 4px 4px 0 var(--ink); transition: transform .08s ease, box-shadow .08s ease;
+  }
+  .mm-btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+  .mm-btn:active { transform: translate(0, 0); box-shadow: 2px 2px 0 var(--ink); }
+  .mm-btn.mm-ghost {
+    background: var(--paper); color: var(--ink); margin-top: 10px;
+  }
+  .mm-btn:disabled {
+    opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: 2px 2px 0 var(--ink);
+  }
+
+  .mm-status { min-height: 18px; font-size: 12.5px; margin-top: 10px; }
+  .mm-status.mm-ok { color: #2F6B4F; }
+  .mm-status.mm-warn { color: var(--accent); }
+
+  .mm-preview-head {
+    display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;
+  }
+  .mm-preview-title { font-size: 16px; font-weight: 700; }
+  .mm-preview-hint { font-size: 12px; color: var(--ink-soft); }
+
+  #mm-canvas-wrap { display: flex; justify-content: center; margin-bottom: 20px; overflow-x: auto; }
+  #mm-canvas { image-rendering: crisp-edges; }
+
+  .mm-empty {
+    font-size: 13.5px; color: var(--ink-soft); text-align: center; padding: 60px 10px;
+    border: 1.5px dashed var(--ring);
+  }
+
+  .mm-wordlist-title { font-size: 13px; font-weight: 700; margin: 0 0 10px; }
+  .mm-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+  .mm-chip {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;
+    border: 1.5px solid var(--ink); padding: 4px 9px; border-radius: 3px;
+    background: var(--accent-soft);
+  }
+  .mm-chip.mm-failed {
+    background: transparent; border-style: dashed; color: var(--ink-soft);
+    text-decoration: line-through;
+  }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+(function () {
+  const root = document.getElementById('mm-root');
+
+  // Dictionnaire de secours (utilisé si themes.json est introuvable)
+  const BASE_DICTIONARY = {
+    "Animaux de la ferme": ["VACHE","COCHON","POULE","MOUTON","CHEVAL","CANARD","DINDE","LAPIN","CHEVRE","ANE","OIE","COQ","TAUREAU","POULAIN","AGNEAU"],
+    "Informatique": ["PYTHON","ALGORITHME","VARIABLE","BOUCLE","FONCTION","LISTE","CLASSE","OBJET","MODULE","SERVEUR","RESEAU","CLAVIER","SOURIS","FICHIER","NAVIGATEUR"],
+    "Fruits": ["POMME","POIRE","BANANE","ORANGE","CITRON","FRAISE","CERISE","ABRICOT","PECHE","RAISIN","MELON","ANANAS","KIWI","FRAMBOISE","PRUNE"],
+    "Pays": ["FRANCE","BELGIQUE","ITALIE","ESPAGNE","ALLEMAGNE","PORTUGAL","SUISSE","CANADA","BRESIL","JAPON","EGYPTE","MAROC","NORVEGE","GRECE","IRLANDE"],
+    "Sports": ["FOOTBALL","TENNIS","NATATION","BASKET","RUGBY","CYCLISME","ESCRIME","JUDO","GOLF","HANDBALL","VOLLEY","BOXE","SKI","ATHLETISME","AVIRON"],
+    "Corps humain": ["TETE","BRAS","JAMBE","MAIN","PIED","DOIGT","COUDE","GENOU","EPAULE","POIGNET","CHEVILLE","THORAX","ABDOMEN","FRONT","NUQUE"],
+    "Couleurs": ["ROUGE","BLEU","VERT","JAUNE","ORANGE","VIOLET","NOIR","BLANC","ROSE","MARRON","GRIS","DORE","ARGENT","TURQUOISE","MAUVE"],
+    "Vetements": ["CHEMISE","PANTALON","ROBE","JUPE","MAILLOT","BONNET","ECHARPE","GANTS","CHAUSSETTES","BOTTES","SANDALE","CRAVATE","CEINTURE","BOUTON","POCHE"],
+    "Emotions": ["JOIE","TRISTESSE","COLERE","PEUR","AMOUR","SURPRISE","HONTE","FIERTE","COURAGE","ESPOIR","CALME","ANXIETE","JALOUSIE","GRATITUDE","SERENITE"],
+    "Outils": ["MARTEAU","TOURNEVIS","PINCE","SCIE","CLE","NIVEAU","METRE","COUTEAU","LIME","ETAU","PERCEUSE","PLANE","RABOT","CISEAUX","LEVIER"],
+    "Meteo": ["SOLEIL","PLUIE","NUAGE","VENT","ORAGE","NEIGE","GRELE","BROUILLARD","ARCENCIEL","TEMPETE","CYCLONE","RAFALE","ECLAIR","TONNERRE","FOUDRE"],
+    "Materiaux": ["BOIS","FER","ACIER","VERRE","PLASTIQUE","BETON","BRIQUE","CUIR","CAOUTCHOUC","ALUMINIUM","CUIVRE","OR","ARGENT","MARBRE","GRANIT"],
+    "Boissons": ["EAU","CAFE","THE","JUS","LAIT","BIERE","VIN","CIDRE","SODA","CHOCOLAT","INFUSION","SIROP","MILKSHAKE","COCKTAIL","LIMONADE"],
+    "Jouets": ["POUPEE","BALLON","VOITURE","PUZZLE","LEGO","DINOSAURE","OURSON","TROTTEUR","TOUPIE","MAISON","CUBE","FUSEE","AVION","TRAIN","ROBOT"],
+    "Planetes": ["MERCURE","VENUS","TERRE","MARS","JUPITER","SATURNE","URANUS","NEPTUNE","PLUTON","SOLEIL","LUNE","METEORE","COMETE","GALAXIE","NEBULEUSE"]
+  };
+
+  // Thèmes de base : themes.json une fois chargé, sinon BASE_DICTIONARY
+  let baseThemes = BASE_DICTIONARY;
+  // Copie profonde pour pouvoir ajouter les fichiers externes
+  const DICTIONARY = JSON.parse(JSON.stringify(BASE_DICTIONARY));
+  const FILE_THEME = "Fichier Local (dico.txt)";
+
+  root.innerHTML = `
+    <div class="mm-wrap">
+      <div class="mm-head">
+        <div class="mm-rings"><span class="mm-ring"></span><span class="mm-ring"></span></div>
+        <h1 class="mm-title">Créateur de mots mêlés</h1>
+      </div>
+      <p class="mm-sub">Composez une grille, prévisualisez-la, puis téléchargez-la en PDF prête à imprimer.</p>
+
+      <div class="mm-grid-layout">
+        <div class="mm-panel">
+          <div class="mm-field">
+            <div class="mm-label">Titre du thème</div>
+            <input class="mm-input" id="mm-title-input" type="text" placeholder="Ex : Animaux de la ferme" value="Mots Mêlés">
+          </div>
+
+          <div class="mm-field">
+            <div class="mm-label">Taille de la grille</div>
+            <div class="mm-size-row">
+              <input class="mm-num" id="mm-size-input" type="number" min="8" max="24" value="18">
+              <span class="mm-size-hint">cases (8 à 24)</span>
+            </div>
+          </div>
+
+          <div class="mm-field">
+            <div class="mm-label">Tirage aléatoire</div>
+            <select class="mm-input" id="mm-theme-select"></select>
+            <div class="mm-size-row" style="margin-top:8px">
+              <input class="mm-num" id="mm-nb-input" type="number" min="3" max="30" value="15">
+              <span class="mm-size-hint">mots à tirer</span>
+            </div>
+            <button class="mm-btn mm-ghost" id="mm-random-btn" type="button">🎲 Grille aléatoire</button>
+          </div>
+
+          <div class="mm-field">
+            <div class="mm-label">
+              <span>Liste des mots (un par ligne)</span>
+              <span class="mm-count" id="mm-word-count">0 mot</span>
+            </div>
+            <textarea class="mm-textarea" id="mm-words-input"></textarea>
+          </div>
+
+          <button class="mm-btn" id="mm-generate-btn">Générer la grille</button>
+          <button class="mm-btn mm-ghost" id="mm-pdf-btn" disabled>Télécharger le PDF</button>
+          <div class="mm-status" id="mm-status"></div>
+        </div>
+
+        <div class="mm-panel">
+          <div class="mm-preview-head">
+            <span class="mm-preview-title">Aperçu</span>
+            <span class="mm-preview-hint" id="mm-preview-hint"></span>
+          </div>
+          <div id="mm-preview-body">
+            <div class="mm-empty">Votre grille apparaîtra ici après génération.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const titleInput = root.querySelector('#mm-title-input');
+  const sizeInput = root.querySelector('#mm-size-input');
+  const wordsInput = root.querySelector('#mm-words-input');
+  const wordCountEl = root.querySelector('#mm-word-count');
+  const generateBtn = root.querySelector('#mm-generate-btn');
+  const pdfBtn = root.querySelector('#mm-pdf-btn');
+  const statusEl = root.querySelector('#mm-status');
+  const previewBody = root.querySelector('#mm-preview-body');
+  const previewHint = root.querySelector('#mm-preview-hint');
+  const themeSelect = root.querySelector('#mm-theme-select');
+  const nbInput = root.querySelector('#mm-nb-input');
+  const randomBtn = root.querySelector('#mm-random-btn');
+
+  // Nettoyage d'un mot (accents, minuscules, caractères spéciaux)
+  function cleanWord(w) {
+    return w.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().replace(/[^A-Z]/g, '');
+  }
+
+  function setStatus(text, kind) {
+    statusEl.textContent = text;
+    statusEl.className = 'mm-status' + (kind ? ' mm-' + kind : '');
+  }
+
+  // Remplit le menu des thèmes en conservant la sélection courante
+  function refreshThemeSelect() {
+    const previous = themeSelect.value;
+    themeSelect.innerHTML =
+      '<option value="">Tous les thèmes</option>' +
+      Object.keys(DICTIONARY).map(t => `<option value="${t}">${t}</option>`).join('');
+    if (previous && DICTIONARY[previous]) themeSelect.value = previous;
+  }
+
+  // Initialisation immédiate : plus besoin d'attendre le fetch
+  refreshThemeSelect();
+
+  // Chargement de themes.json (thèmes de base), repli sur BASE_DICTIONARY
+  function loadThemes() {
+    return fetch('themes.json')
+      .then(response => {
+        if (!response.ok) throw new Error("Fichier non trouvé");
+        return response.json();
+      })
+      .then(data => {
+        const themes = {};
+        Object.keys(data || {}).forEach(name => {
+          if (!Array.isArray(data[name])) return;
+          const words = [...new Set(data[name].map(cleanWord).filter(w => w.length > 1))];
+          if (words.length > 0) themes[name] = words;
+        });
+        if (Object.keys(themes).length === 0) throw new Error("Aucun thème valide");
+
+        // Remplace les thèmes intégrés (le thème dico.txt n'est pas encore chargé)
+        Object.keys(DICTIONARY).forEach(name => delete DICTIONARY[name]);
+        Object.assign(DICTIONARY, JSON.parse(JSON.stringify(themes)));
+        baseThemes = themes;
+        refreshThemeSelect();
+      })
+      .catch(() => {
+        console.log("themes.json non trouvé ou invalide. Utilisation des thèmes intégrés.");
+        setStatus("themes.json introuvable : thèmes intégrés utilisés.", "warn");
+      });
+  }
+
+  // Chargement de dico.txt (optionnel)
+  function loadDico() {
+    return fetch('dico.txt')
+      .then(response => {
+        if (!response.ok) throw new Error("Fichier non trouvé");
+        return response.text();
+      })
+      .then(text => {
+        const words = [...new Set(
+          text.split(/\r?\n/).map(cleanWord).filter(w => w.length > 1)
+        )];
+
+        if (words.length > 0) {
+          DICTIONARY[FILE_THEME] = words;
+          refreshThemeSelect();
+          setStatus("Fichier dico.txt chargé (" + words.length + " mots).", "ok");
+        }
+      })
+      .catch(() => {
+        console.log("dico.txt non trouvé ou illisible.");
+        setStatus("dico.txt introuvable : thème « " + FILE_THEME + " » indisponible.", "warn");
+      });
+  }
+
+  // themes.json d'abord, puis dico.txt (qui s'ajoute aux thèmes)
+  loadThemes().then(loadDico);
+
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function getWords() {
+    return wordsInput.value
+      .split(/\s+/)
+      .map(cleanWord)
+      .filter((w, i, arr) => w && arr.indexOf(w) === i);
+  }
+
+  randomBtn.addEventListener('click', () => {
+    const theme = themeSelect.value;
+    const size = Math.min(Math.max(parseInt(sizeInput.value, 10) || 15, 8), 24);
+
+    let pool = [];
+    if (theme && DICTIONARY[theme]) {
+      pool = DICTIONARY[theme];
+    } else {
+      // "Tous les thèmes" : thèmes de base uniquement (le gros fichier les noierait)
+      pool = Object.values(baseThemes).flat();
+    }
+
+    // Filtrer les mots trop longs pour la grille actuelle
+    const validPool = [...new Set(pool)].filter(w => w.length <= size);
+
+    if (validPool.length === 0) {
+      setStatus("Aucun mot ne correspond à cette taille de grille.", "warn");
+      return;
+    }
+
+    const n = Math.min(Math.max(parseInt(nbInput.value, 10) || 10, 1), validPool.length);
+    const selected = shuffle(validPool).slice(0, n);
+
+    wordsInput.value = selected.join('\n');
+    titleInput.value = theme || 'Mots Mêlés';
+    updateWordCount();
+    generateBtn.click();
+  });
+
+  wordsInput.value = ["PYTHON","ALGORITHME","VARIABLE","BOUCLE","FONCTION","LISTE","DICTIONNAIRE","CLASSE","OBJET","MODULE"].join("\n");
+
+  let lastResult = null;
+
+  function updateWordCount() {
+    const words = getWords();
+    wordCountEl.textContent = words.length + (words.length === 1 ? ' mot' : ' mots');
+  }
+  wordsInput.addEventListener('input', updateWordCount);
+  updateWordCount();
+
+  function buildGrid(words, size) {
+    const grid = Array.from({ length: size }, () => Array(size).fill(''));
+    const directions = [[0, 1], [1, 0], [1, 1], [-1, 1], [0, -1], [-1, 0], [-1, -1], [1, -1]];
+    const sorted = [...words].sort((a, b) => b.length - a.length);
+    const placed = [];
+    const failed = [];
+
+    for (const word of sorted) {
+      if (word.length > size) {
+        failed.push(word);
+        continue;
+      }
+      let ok = false;
+      let attempts = 0;
+      while (!ok && attempts < 300) {
+        attempts++;
+        const [dr, dc] = directions[Math.floor(Math.random() * directions.length)];
+        const startRow = Math.floor(Math.random() * size);
+        const startCol = Math.floor(Math.random() * size);
+        const endRow = startRow + dr * (word.length - 1);
+        const endCol = startCol + dc * (word.length - 1);
+
+        if (endRow < 0 || endRow >= size || endCol < 0 || endCol >= size) continue;
+
+        let conflict = false;
+        for (let i = 0; i < word.length; i++) {
+          const r = startRow + dr * i, c = startCol + dc * i;
+          const cell = grid[r][c];
+          if (cell !== '' && cell !== word[i]) { conflict = true; break; }
+        }
+        if (conflict) continue;
+
+        for (let i = 0; i < word.length; i++) {
+          const r = startRow + dr * i, c = startCol + dc * i;
+          grid[r][c] = word[i];
+        }
+        placed.push(word);
+        ok = true;
+      }
+      if (!ok) failed.push(word);
+    }
+
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    for (let r = 0; r < size; r++) {
+      for (let c = 0; c < size; c++) {
+        if (grid[r][c] === '') grid[r][c] = alphabet[Math.floor(Math.random() * alphabet.length)];
+      }
+    }
+    return { grid, placed, failed };
+  }
+
+  function drawCanvas(grid, size) {
+    const cell = size > 18 ? 26 : 32;
+    const canvas = document.createElement('canvas');
+    canvas.id = 'mm-canvas';
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = size * cell * dpr;
+    canvas.height = size * cell * dpr;
+    canvas.style.width = (size * cell) + 'px';
+    canvas.style.height = (size * cell) + 'px';
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+
+    ctx.fillStyle = '#FFFEFB';
+    ctx.fillRect(0, 0, size * cell, size * cell);
+
+    ctx.strokeStyle = '#1F2A3C';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= size; i++) {
+      ctx.beginPath(); ctx.moveTo(0, i * cell); ctx.lineTo(size * cell, i * cell); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(i * cell, 0); ctx.lineTo(i * cell, size * cell); ctx.stroke();
+    }
+
+    ctx.fillStyle = '#1F2A3C';
+    ctx.font = `600 ${Math.round(cell * 0.42)}px 'IBM Plex Mono', monospace`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    for (let r = 0; r < size; r++) {
+      for (let c = 0; c < size; c++) {
+        ctx.fillText(grid[r][c], c * cell + cell / 2, r * cell + cell / 2 + 1);
+      }
+    }
+    return canvas;
+  }
+
+  function renderPreview(result) {
+    const { grid, placed, failed, size } = result;
+    previewBody.innerHTML = '';
+
+    const canvasWrap = document.createElement('div');
+    canvasWrap.id = 'mm-canvas-wrap';
+    canvasWrap.appendChild(drawCanvas(grid, size));
+    previewBody.appendChild(canvasWrap);
+
+    const listWrap = document.createElement('div');
+    const listTitle = document.createElement('p');
+    listTitle.className = 'mm-wordlist-title';
+    listTitle.textContent = 'Mots à trouver';
+    listWrap.appendChild(listTitle);
+
+    const chips = document.createElement('div');
+    chips.className = 'mm-chips';
+    [...placed].sort().forEach(w => {
+      const chip = document.createElement('span');
+      chip.className = 'mm-chip';
+      chip.textContent = w;
+      chips.appendChild(chip);
+    });
+    failed.forEach(w => {
+      const chip = document.createElement('span');
+      chip.className = 'mm-chip mm-failed';
+      chip.textContent = w;
+      chips.appendChild(chip);
+    });
+    listWrap.appendChild(chips);
+    previewBody.appendChild(listWrap);
+
+    previewHint.textContent = `${size} × ${size} · ${placed.length} mot${placed.length !== 1 ? 's' : ''} placé${placed.length !== 1 ? 's' : ''}`;
+  }
+
+  generateBtn.addEventListener('click', () => {
+    const words = getWords();
+
+    if (words.length === 0) {
+      setStatus("Veuillez entrer au moins un mot.", "warn");
+      return;
+    }
+
+    let size = parseInt(sizeInput.value, 10);
+    if (!size || size < 8) size = 8;
+    if (size > 24) size = 24;
+    sizeInput.value = size;
+
+    const { grid, placed, failed } = buildGrid(words, size);
+    lastResult = { grid, placed, failed, size, title: titleInput.value.trim() || 'Mots Mêlés' };
+    renderPreview(lastResult);
+    pdfBtn.disabled = false;
+
+    if (failed.length > 0) {
+      setStatus(`Grille générée — ${failed.length} mot(s) n'a/ont pas pu être placé(s).`, 'warn');
+    } else {
+      setStatus('Grille générée avec succès.', 'ok');
+    }
+  });
+
+  pdfBtn.addEventListener('click', () => {
+    if (!lastResult) return;
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'cm', format: 'a4' });
+    const pageWidth = 21, pageHeight = 29.7;
+    const { grid, placed, size, title } = lastResult;
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(24);
+    doc.text(`Thème : ${title}`, pageWidth / 2, 2.4, { align: 'center' });
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(12);
+    doc.text('Retrouvez les mots suivants dans la grille :', pageWidth / 2, 3.3, { align: 'center' });
+
+    const gridSizeCm = 16;
+    const cellSize = gridSizeCm / size;
+    const startX = (pageWidth - gridSizeCm) / 2;
+    const startY = 4.4;
+
+    doc.setDrawColor(20, 20, 30);
+    doc.setLineWidth(0.02);
+    for (let i = 0; i <= size; i++) {
+      doc.line(startX, startY + i * cellSize, startX + gridSizeCm, startY + i * cellSize);
+      doc.line(startX + i * cellSize, startY, startX + i * cellSize, startY + gridSizeCm);
+    }
+
+    doc.setFont('courier', 'bold');
+    doc.setFontSize(Math.max(7, 20 - size) + 3);
+    for (let r = 0; r < size; r++) {
+      for (let c = 0; c < size; c++) {
+        const x = startX + c * cellSize + cellSize / 2;
+        const y = startY + r * cellSize + cellSize / 2 + 0.12;
+        doc.text(grid[r][c], x, y, { align: 'center' });
+      }
+    }
+
+    const listY = startY + gridSizeCm + 1.1;
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(14);
+    doc.text('Mots à trouver :', startX, listY);
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(12);
+    const sortedWords = [...placed].sort();
+    const maxCols = 3;
+    const colWidth = (pageWidth - 2 * startX) / maxCols;
+    sortedWords.forEach((word, i) => {
+      const col = i % maxCols;
+      const row = Math.floor(i / maxCols);
+      const x = startX + col * colWidth;
+      const y = listY + 0.8 + row * 0.6;
+      if (y < pageHeight - 1.5) doc.text(`- ${word}`, x, y);
+    });
+
+    const safeTitle = title.replace(/\s+/g, '_');
+    doc.save(`${safeTitle}.pdf`);
+  });
+})();
+</script>
