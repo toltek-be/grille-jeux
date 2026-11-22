@@ -1,0 +1,3804 @@
+{
+  "Animaux de la ferme": [
+    {
+      "w": "VACHE",
+      "d": "Animal qui donne du lait"
+    },
+    {
+      "w": "COCHON",
+      "d": "Animal domestique rose"
+    },
+    {
+      "w": "POULE",
+      "d": "Oiseau qui pond des œufs"
+    },
+    {
+      "w": "MOUTON",
+      "d": "Animal à la laine épaisse"
+    },
+    {
+      "w": "CHEVAL",
+      "d": "Animal de selle et de trait"
+    },
+    {
+      "w": "CANARD",
+      "d": "Oiseau aquatique qui cancanne"
+    },
+    {
+      "w": "DINDE",
+      "d": "Grand oiseau de Thanksgiving"
+    },
+    {
+      "w": "LAPIN",
+      "d": "Animal aux longues oreilles"
+    },
+    {
+      "w": "CHEVRE",
+      "d": "Animal qui grimpe aux arbres"
+    },
+    {
+      "w": "ANE",
+      "d": "Parent du cheval, très têtu"
+    },
+    {
+      "w": "OIE",
+      "d": "Oiseau au cou long"
+    },
+    {
+      "w": "COQ",
+      "d": "Mâle de la poule"
+    },
+    {
+      "w": "TAUREAU",
+      "d": "Bœuf non castré"
+    },
+    {
+      "w": "POULAIN",
+      "d": "Jeune cheval"
+    },
+    {
+      "w": "AGNEAU",
+      "d": "Jeune mouton"
+    },
+    {
+      "w": "BREBIS",
+      "d": "Femelle du mouton"
+    },
+    {
+      "w": "BELIER",
+      "d": "Mâle du mouton"
+    },
+    {
+      "w": "VEAU",
+      "d": "Jeune bovin"
+    },
+    {
+      "w": "TRUIE",
+      "d": "Femelle du porc"
+    },
+    {
+      "w": "PORCELET",
+      "d": "Jeune porc"
+    },
+    {
+      "w": "POULET",
+      "d": "Jeune poule, aussi un plat"
+    },
+    {
+      "w": "POUSSIN",
+      "d": "Jeune poulet"
+    },
+    {
+      "w": "OISON",
+      "d": "Jeune oie"
+    },
+    {
+      "w": "CANETON",
+      "d": "Jeune canard"
+    },
+    {
+      "w": "CHEVREAU",
+      "d": "Jeune chèvre"
+    },
+    {
+      "w": "GENISSE",
+      "d": "Jeune vache"
+    },
+    {
+      "w": "BOEUF",
+      "d": "Bovin élevé pour la viande"
+    },
+    {
+      "w": "BOUC",
+      "d": "Mâle de la chèvre"
+    },
+    {
+      "w": "ANON",
+      "d": "Jeune âne"
+    },
+    {
+      "w": "PINTADE",
+      "d": "Oiseau de basse-cour"
+    }
+  ],
+  "Informatique": [
+    {
+      "w": "PYTHON",
+      "d": "Langage de programmation nommé d'après un serpent"
+    },
+    {
+      "w": "ALGORITHME",
+      "d": "Suite d'instructions"
+    },
+    {
+      "w": "VARIABLE",
+      "d": "Espace mémoire nommé"
+    },
+    {
+      "w": "BOUCLE",
+      "d": "Structure de répétition"
+    },
+    {
+      "w": "FONCTION",
+      "d": "Bloc de code réutilisable"
+    },
+    {
+      "w": "LISTE",
+      "d": "Collection ordonnée d'éléments"
+    },
+    {
+      "w": "CLASSE",
+      "d": "Blueprint en programmation orientée objet"
+    },
+    {
+      "w": "OBJET",
+      "d": "Instance d'une classe"
+    },
+    {
+      "w": "MODULE",
+      "d": "Unité de code réutilisable"
+    },
+    {
+      "w": "SERVEUR",
+      "d": "Machine qui fournit des services"
+    },
+    {
+      "w": "RESEAU",
+      "d": "Interconnexion d'ordinateurs"
+    },
+    {
+      "w": "CLAVIER",
+      "d": "Périphérique de saisie"
+    },
+    {
+      "w": "SOURIS",
+      "d": "Périphérique de pointage"
+    },
+    {
+      "w": "FICHIER",
+      "d": "Document stocké sur un disque"
+    },
+    {
+      "w": "NAVIGATEUR",
+      "d": "Logiciel de consultation web"
+    },
+    {
+      "w": "ECRAN",
+      "d": "Périphérique d'affichage"
+    },
+    {
+      "w": "LOGICIEL",
+      "d": "Programme informatique"
+    },
+    {
+      "w": "PROGRAMME",
+      "d": "Ensemble d'instructions"
+    },
+    {
+      "w": "DONNEES",
+      "d": "Informations traitées"
+    },
+    {
+      "w": "CODE",
+      "d": "Instructions écrites pour un ordinateur"
+    },
+    {
+      "w": "INTERNET",
+      "d": "Réseau mondial"
+    },
+    {
+      "w": "MEMOIRE",
+      "d": "Espace de stockage temporaire"
+    },
+    {
+      "w": "PROCESSEUR",
+      "d": "Cerveau de l'ordinateur"
+    },
+    {
+      "w": "DISQUE",
+      "d": "Support de stockage"
+    },
+    {
+      "w": "TABLEAU",
+      "d": "Collection indexée d'éléments"
+    },
+    {
+      "w": "CHAINE",
+      "d": "Suite de caractères"
+    },
+    {
+      "w": "ENTIER",
+      "d": "Nombre sans décimale"
+    },
+    {
+      "w": "SCRIPT",
+      "d": "Programme exécuté ligne par ligne"
+    },
+    {
+      "w": "TERMINAL",
+      "d": "Interface de commande"
+    },
+    {
+      "w": "PIXEL",
+      "d": "Plus petit point d'une image"
+    }
+  ],
+  "Fruits": [
+    {
+      "w": "POMME",
+      "d": "Fruit rouge ou vert, très courant"
+    },
+    {
+      "w": "POIRE",
+      "d": "Fruit en forme de poire"
+    },
+    {
+      "w": "BANANE",
+      "d": "Fruit jaune en forme de croissant"
+    },
+    {
+      "w": "ORANGE",
+      "d": "Agrume rond et juteux"
+    },
+    {
+      "w": "CITRON",
+      "d": "Agrume acide jaune"
+    },
+    {
+      "w": "FRAISE",
+      "d": "Petit fruit rouge semé de graines"
+    },
+    {
+      "w": "CERISE",
+      "d": "Petit fruit rouge en grappe"
+    },
+    {
+      "w": "ABRICOT",
+      "d": "Petit fruit orange du prunier"
+    },
+    {
+      "w": "PECHE",
+      "d": "Faute morale"
+    },
+    {
+      "w": "RAISIN",
+      "d": "Petit fruit en grappe pour le vin"
+    },
+    {
+      "w": "MELON",
+      "d": "Grand fruit à chair douce"
+    },
+    {
+      "w": "ANANAS",
+      "d": "Fruit tropical à couronne épineuse"
+    },
+    {
+      "w": "KIWI",
+      "d": "Fruit brun velu à chair verte"
+    },
+    {
+      "w": "FRAMBOISE",
+      "d": "Petit fruit rouge creux"
+    },
+    {
+      "w": "PRUNE",
+      "d": "Fruit ovale violet ou jaune"
+    },
+    {
+      "w": "MANDARINE",
+      "d": "Petit agrume asiatique"
+    },
+    {
+      "w": "CLEMENTINE",
+      "d": "Petit agrume facile à peler"
+    },
+    {
+      "w": "PAMPLEMOUSSE",
+      "d": "Arbre fruitier à pamplemousses"
+    },
+    {
+      "w": "MYRTILLE",
+      "d": "Petit fruit bleu antioxydant"
+    },
+    {
+      "w": "GROSEILLE",
+      "d": "Petit fruit rouge en grappe"
+    },
+    {
+      "w": "FIGUE",
+      "d": "Fruit du figuier"
+    },
+    {
+      "w": "DATTE",
+      "d": "Fruit du palmier dattier"
+    },
+    {
+      "w": "MANGUE",
+      "d": "Fruit tropical sucré"
+    },
+    {
+      "w": "GRENADE",
+      "d": "Fruit aux grains rouges"
+    },
+    {
+      "w": "LITCHI",
+      "d": "Fruit asiatique à peau rugueuse"
+    },
+    {
+      "w": "PASTEQUE",
+      "d": "Grand fruit rouge et rafraîchissant"
+    },
+    {
+      "w": "CASSIS",
+      "d": "Petit fruit noir acidulé"
+    },
+    {
+      "w": "COING",
+      "d": "Fruit dur et acidulé"
+    },
+    {
+      "w": "NECTARINE",
+      "d": "Pêche à peau lisse"
+    },
+    {
+      "w": "MURE",
+      "d": "Fruit sauvage noir des ronces"
+    }
+  ],
+  "Pays": [
+    {
+      "w": "FRANCE",
+      "d": "Pays de la Tour Eiffel"
+    },
+    {
+      "w": "BELGIQUE",
+      "d": "Pays des frites et bandes dessinées"
+    },
+    {
+      "w": "ITALIE",
+      "d": "Pays de la botte"
+    },
+    {
+      "w": "ESPAGNE",
+      "d": "Pays de la sieste et du flamenco"
+    },
+    {
+      "w": "ALLEMAGNE",
+      "d": "Pays d'Europe centrale"
+    },
+    {
+      "w": "PORTUGAL",
+      "d": "Pays de l'ouest de l'Europe"
+    },
+    {
+      "w": "SUISSE",
+      "d": "Pays du chocolat et des montres"
+    },
+    {
+      "w": "CANADA",
+      "d": "Pays du maple"
+    },
+    {
+      "w": "BRESIL",
+      "d": "Plus grand pays d'Amérique du Sud"
+    },
+    {
+      "w": "JAPON",
+      "d": "Pays du soleil levant"
+    },
+    {
+      "w": "EGYPTE",
+      "d": "Pays des pharaons"
+    },
+    {
+      "w": "MAROC",
+      "d": "Pays du nord-ouest de l'Afrique"
+    },
+    {
+      "w": "NORVEGE",
+      "d": "Pays scandinave du nord"
+    },
+    {
+      "w": "GRECE",
+      "d": "Pays de la mythologie antique"
+    },
+    {
+      "w": "IRLANDE",
+      "d": "Île-nation d'Europe"
+    },
+    {
+      "w": "AUTRICHE",
+      "d": "Pays alpin d'Europe centrale"
+    },
+    {
+      "w": "POLOGNE",
+      "d": "Pays d'Europe centrale"
+    },
+    {
+      "w": "SUEDE",
+      "d": "Pays scandinave d'IKEA"
+    },
+    {
+      "w": "FINLANDE",
+      "d": "Pays des lacs"
+    },
+    {
+      "w": "DANEMARK",
+      "d": "Pays scandinave du sud"
+    },
+    {
+      "w": "HONGRIE",
+      "d": "Pays d'Europe centrale"
+    },
+    {
+      "w": "TURQUIE",
+      "d": "Pays entre Europe et Asie"
+    },
+    {
+      "w": "INDE",
+      "d": "Pays du Taj Mahal"
+    },
+    {
+      "w": "CHINE",
+      "d": "Plus peuplé du monde"
+    },
+    {
+      "w": "MEXIQUE",
+      "d": "Pays des tacos"
+    },
+    {
+      "w": "ARGENTINE",
+      "d": "Pays du sud de l'Amérique du Sud"
+    },
+    {
+      "w": "PEROU",
+      "d": "Pays de Machu Picchu"
+    },
+    {
+      "w": "CHILI",
+      "d": "Pays long et étroit d'Amérique du Sud"
+    },
+    {
+      "w": "AUSTRALIE",
+      "d": "Pays-continent du sud"
+    },
+    {
+      "w": "TUNISIE",
+      "d": "Pays"
+    }
+  ],
+  "Sports": [
+    {
+      "w": "FOOTBALL",
+      "d": "Sport le plus populaire au monde"
+    },
+    {
+      "w": "TENNIS",
+      "d": "Sport de raquette sur court"
+    },
+    {
+      "w": "NATATION",
+      "d": "Sport aquatique"
+    },
+    {
+      "w": "BASKET",
+      "d": "Chaussure de sport"
+    },
+    {
+      "w": "RUGBY",
+      "d": "Sport à quinze par équipe"
+    },
+    {
+      "w": "CYCLISME",
+      "d": "Sport sur deux roues"
+    },
+    {
+      "w": "ESCRIME",
+      "d": "Sport pratiqué"
+    },
+    {
+      "w": "JUDO",
+      "d": "Art martial avec le kimono"
+    },
+    {
+      "w": "GOLF",
+      "d": "Sport avec des clubs et un petit ballon"
+    },
+    {
+      "w": "HANDBALL",
+      "d": "Sport collectif à la main"
+    },
+    {
+      "w": "VOLLEY",
+      "d": "Sport collectif au filet"
+    },
+    {
+      "w": "BOXE",
+      "d": "Combat dans un ring"
+    },
+    {
+      "w": "SKI",
+      "d": "Glisse sur les pistes"
+    },
+    {
+      "w": "ATHLETISME",
+      "d": "Sport de course et de saut"
+    },
+    {
+      "w": "AVIRON",
+      "d": "Sport nautique avec des rames"
+    },
+    {
+      "w": "BADMINTON",
+      "d": "Sport de raquette avec navette"
+    },
+    {
+      "w": "KARATE",
+      "d": "Art martial japonais"
+    },
+    {
+      "w": "ESCALADE",
+      "d": "Sport de grimpe"
+    },
+    {
+      "w": "EQUITATION",
+      "d": "Sport pratiqué"
+    },
+    {
+      "w": "BASEBALL",
+      "d": "Sport pratiqué"
+    },
+    {
+      "w": "HOCKEY",
+      "d": "Sport pratiqué"
+    },
+    {
+      "w": "SURF",
+      "d": "Sport de glisse sur les vagues"
+    },
+    {
+      "w": "PLONGEON",
+      "d": "Sport pratiqué"
+    },
+    {
+      "w": "LUGE",
+      "d": "Sport pratiqué"
+    },
+    {
+      "w": "BIATHLON",
+      "d": "Sport pratiqué"
+    },
+    {
+      "w": "TRIATHLON",
+      "d": "Course combinant trois disciplines"
+    },
+    {
+      "w": "MARATHON",
+      "d": "Course de 42 kilomètres"
+    },
+    {
+      "w": "DANSE",
+      "d": "Sport pratiqué"
+    },
+    {
+      "w": "GYMNASTIQUE",
+      "d": "Sport pratiqué"
+    },
+    {
+      "w": "PETANQUE",
+      "d": "Sport de boule provençal"
+    }
+  ],
+  "Corps humain": [
+    {
+      "w": "TETE",
+      "d": "Partie supérieure du corps"
+    },
+    {
+      "w": "BRAS",
+      "d": "Membre supérieur"
+    },
+    {
+      "w": "JAMBE",
+      "d": "Membre inférieur"
+    },
+    {
+      "w": "MAIN",
+      "d": "Extrémité du bras avec des doigts"
+    },
+    {
+      "w": "PIED",
+      "d": "Extrémité de la jambe"
+    },
+    {
+      "w": "DOIGT",
+      "d": "Extrémité de la main"
+    },
+    {
+      "w": "COUDE",
+      "d": "Articulation du bras"
+    },
+    {
+      "w": "GENOU",
+      "d": "Articulation de la jambe"
+    },
+    {
+      "w": "EPAULE",
+      "d": "Articulation du bras"
+    },
+    {
+      "w": "POIGNET",
+      "d": "Articulation de la main"
+    },
+    {
+      "w": "CHEVILLE",
+      "d": "Articulation du pied"
+    },
+    {
+      "w": "THORAX",
+      "d": "Partie du corps"
+    },
+    {
+      "w": "ABDOMEN",
+      "d": "Partie du corps"
+    },
+    {
+      "w": "FRONT",
+      "d": "Partie supérieure du visage"
+    },
+    {
+      "w": "NUQUE",
+      "d": "Partie arrière du cou"
+    },
+    {
+      "w": "CHEVEUX",
+      "d": "Partie du corps"
+    },
+    {
+      "w": "VISAGE",
+      "d": "Partie avant de la tête"
+    },
+    {
+      "w": "OREILLE",
+      "d": "Organe de l'ouïe"
+    },
+    {
+      "w": "BOUCHE",
+      "d": "Ouverture pour manger et parler"
+    },
+    {
+      "w": "LANGUE",
+      "d": "Organe du goût"
+    },
+    {
+      "w": "DENT",
+      "d": "Organe pour mâcher"
+    },
+    {
+      "w": "JOUE",
+      "d": "Partie latérale du visage"
+    },
+    {
+      "w": "MENTON",
+      "d": "Partie inférieure du visage"
+    },
+    {
+      "w": "DOS",
+      "d": "Partie postérieure du tronc"
+    },
+    {
+      "w": "VENTRE",
+      "d": "Partie du corps"
+    },
+    {
+      "w": "HANCHE",
+      "d": "Articulation de la cuisse"
+    },
+    {
+      "w": "TALON",
+      "d": "Partie arrière du pied"
+    },
+    {
+      "w": "ORTEIL",
+      "d": "Partie du corps"
+    },
+    {
+      "w": "COEUR",
+      "d": "Organe qui pompe le sang"
+    },
+    {
+      "w": "POUMON",
+      "d": "Organe de respiration"
+    }
+  ],
+  "Couleurs": [
+    {
+      "w": "ROUGE",
+      "d": "Couleur du sang"
+    },
+    {
+      "w": "BLEU",
+      "d": "Couleur du ciel"
+    },
+    {
+      "w": "VERT",
+      "d": "Couleur de l'herbe"
+    },
+    {
+      "w": "JAUNE",
+      "d": "Couleur du soleil"
+    },
+    {
+      "w": "ORANGE",
+      "d": "Couleur de l'fruit éponyme"
+    },
+    {
+      "w": "VIOLET",
+      "d": "Couleur du spectre entre bleu et rouge"
+    },
+    {
+      "w": "NOIR",
+      "d": "Absence de lumière"
+    },
+    {
+      "w": "BLANC",
+      "d": "Toutes les couleurs mélangées"
+    },
+    {
+      "w": "ROSE",
+      "d": "Dérivé doux du rouge"
+    },
+    {
+      "w": "MARRON",
+      "d": "Couleur du bois"
+    },
+    {
+      "w": "GRIS",
+      "d": "Entre le noir et le blanc"
+    },
+    {
+      "w": "DORE",
+      "d": "Couleur"
+    },
+    {
+      "w": "ARGENT",
+      "d": "Couleur métallique brillante"
+    },
+    {
+      "w": "TURQUOISE",
+      "d": "Bleu-vert tropical"
+    },
+    {
+      "w": "MAUVE",
+      "d": "Couleur"
+    },
+    {
+      "w": "BEIGE",
+      "d": "Couleur sable clair"
+    },
+    {
+      "w": "CORAIL",
+      "d": "Animal colonial des récifs"
+    },
+    {
+      "w": "INDIGO",
+      "d": "Couleur profonde du ciel nocturne"
+    },
+    {
+      "w": "CYAN",
+      "d": "Bleu-vert primaire en imprimerie"
+    },
+    {
+      "w": "MAGENTA",
+      "d": "Rouge-violet primaire en imprimerie"
+    },
+    {
+      "w": "ECARLATE",
+      "d": "Couleur"
+    },
+    {
+      "w": "CARMIN",
+      "d": "Couleur"
+    },
+    {
+      "w": "OCRE",
+      "d": "Terre colorée jaune-orangé"
+    },
+    {
+      "w": "KAKI",
+      "d": "Couleur militaire verdâtre"
+    },
+    {
+      "w": "SAUMON",
+      "d": "Poisson migrateur rose"
+    },
+    {
+      "w": "EMERAUDE",
+      "d": "Couleur"
+    },
+    {
+      "w": "AZUR",
+      "d": "Bleu ciel vif"
+    },
+    {
+      "w": "BORDEAUX",
+      "d": "Rouge foncé"
+    },
+    {
+      "w": "CRAMOISI",
+      "d": "Couleur"
+    },
+    {
+      "w": "LILAS",
+      "d": "Violet clair"
+    }
+  ],
+  "Vetements": [
+    {
+      "w": "CHEMISE",
+      "d": "Vêtement du haut à col"
+    },
+    {
+      "w": "PANTALON",
+      "d": "Vêtement du bas"
+    },
+    {
+      "w": "ROBE",
+      "d": "Vêtement féminin d'une pièce"
+    },
+    {
+      "w": "JUPE",
+      "d": "Vêtement du bas féminin"
+    },
+    {
+      "w": "MAILLOT",
+      "d": "Vêtement de bain"
+    },
+    {
+      "w": "BONNET",
+      "d": "Vêtement ou accessoire"
+    },
+    {
+      "w": "ECHARPE",
+      "d": "Accessoire pour le cou"
+    },
+    {
+      "w": "GANTS",
+      "d": "Vêtement pour les mains"
+    },
+    {
+      "w": "CHAUSSETTES",
+      "d": "Vêtement ou accessoire"
+    },
+    {
+      "w": "BOTTES",
+      "d": "Chaussures montantes"
+    },
+    {
+      "w": "SANDALE",
+      "d": "Vêtement ou accessoire"
+    },
+    {
+      "w": "CRAVATE",
+      "d": "Accessoire formel au cou"
+    },
+    {
+      "w": "CEINTURE",
+      "d": "Accessoire pour la taille"
+    },
+    {
+      "w": "BOUTON",
+      "d": "Vêtement ou accessoire"
+    },
+    {
+      "w": "POCHE",
+      "d": "Vêtement ou accessoire"
+    },
+    {
+      "w": "MANTEAU",
+      "d": "Vêtement d'hiver"
+    },
+    {
+      "w": "VESTE",
+      "d": "Vêtement ou accessoire"
+    },
+    {
+      "w": "PULL",
+      "d": "Vêtement tricoté du haut"
+    },
+    {
+      "w": "CASQUETTE",
+      "d": "Chapeau avec visière"
+    },
+    {
+      "w": "CHAPEAU",
+      "d": "Accessoire pour la tête"
+    },
+    {
+      "w": "FOULARD",
+      "d": "Étoffe pour le cou ou la tête"
+    },
+    {
+      "w": "COLLANT",
+      "d": "Bas moulant opaque"
+    },
+    {
+      "w": "SHORT",
+      "d": "Pantalon court"
+    },
+    {
+      "w": "JEAN",
+      "d": "Pantalon en denim"
+    },
+    {
+      "w": "CHAUSSON",
+      "d": "Chaussure douce de maison"
+    },
+    {
+      "w": "BASKET",
+      "d": "Chaussure de sport"
+    },
+    {
+      "w": "SOULIER",
+      "d": "Chaussure classique"
+    },
+    {
+      "w": "PYJAMA",
+      "d": "Vêtement de nuit"
+    },
+    {
+      "w": "MANCHE",
+      "d": "Partie du vêtement pour le bras"
+    },
+    {
+      "w": "COL",
+      "d": "Partie du vêtement autour du cou"
+    }
+  ],
+  "Emotions": [
+    {
+      "w": "JOIE",
+      "d": "Sentiment de bonheur"
+    },
+    {
+      "w": "TRISTESSE",
+      "d": "État mélancolique"
+    },
+    {
+      "w": "COLERE",
+      "d": "Réaction forte à une injustice"
+    },
+    {
+      "w": "PEUR",
+      "d": "Sentiment face au danger"
+    },
+    {
+      "w": "AMOUR",
+      "d": "Sentiment d'attachement profond"
+    },
+    {
+      "w": "SURPRISE",
+      "d": "Réaction à l'imprévu"
+    },
+    {
+      "w": "HONTE",
+      "d": "Sentiment de culpabilité"
+    },
+    {
+      "w": "FIERTE",
+      "d": "Émotion ou sentiment"
+    },
+    {
+      "w": "COURAGE",
+      "d": "Force face à la peur"
+    },
+    {
+      "w": "ESPOIR",
+      "d": "Attente positive"
+    },
+    {
+      "w": "CALME",
+      "d": "Absence d'agitation"
+    },
+    {
+      "w": "ANXIETE",
+      "d": "Émotion ou sentiment"
+    },
+    {
+      "w": "JALOUSIE",
+      "d": "Rivalité envahissante"
+    },
+    {
+      "w": "GRATITUDE",
+      "d": "Reconnaissance"
+    },
+    {
+      "w": "SERENITE",
+      "d": "Paix intérieure"
+    },
+    {
+      "w": "TENDRESSE",
+      "d": "Affection douce"
+    },
+    {
+      "w": "ENVIE",
+      "d": "Désir de ce que l'autre a"
+    },
+    {
+      "w": "DEGOUT",
+      "d": "Répulsion"
+    },
+    {
+      "w": "NOSTALGIE",
+      "d": "Souvenir douloureux du passé"
+    },
+    {
+      "w": "EUPHORIE",
+      "d": "Sensation de bien-être intense"
+    },
+    {
+      "w": "ENNUI",
+      "d": "Sentiment de lassitude"
+    },
+    {
+      "w": "DOUTE",
+      "d": "Manque de certitude"
+    },
+    {
+      "w": "REMORDS",
+      "d": "Émotion ou sentiment"
+    },
+    {
+      "w": "SOULAGEMENT",
+      "d": "Émotion ou sentiment"
+    },
+    {
+      "w": "ADMIRATION",
+      "d": "Sentiment de respect et d'estime"
+    },
+    {
+      "w": "COMPASSION",
+      "d": "Empathie pour la souffrance d'autrui"
+    },
+    {
+      "w": "FRUSTRATION",
+      "d": "Sentiment d'échec"
+    },
+    {
+      "w": "ENTHOUSIASME",
+      "d": "Émotion ou sentiment"
+    },
+    {
+      "w": "ANGOISSE",
+      "d": "Émotion ou sentiment"
+    },
+    {
+      "w": "BONHEUR",
+      "d": "État de grande joie"
+    }
+  ],
+  "Outils": [
+    {
+      "w": "MARTEAU",
+      "d": "Outil pour frapper des clous"
+    },
+    {
+      "w": "TOURNEVIS",
+      "d": "Outil pour visser"
+    },
+    {
+      "w": "PINCE",
+      "d": "Outil pour saisir ou plier"
+    },
+    {
+      "w": "SCIE",
+      "d": "Outil denté pour couper"
+    },
+    {
+      "w": "CLE",
+      "d": "Outil pour tourner des écrous"
+    },
+    {
+      "w": "NIVEAU",
+      "d": "Outil pour vérifier l'horizontal"
+    },
+    {
+      "w": "METRE",
+      "d": "Outil de mesure"
+    },
+    {
+      "w": "COUTEAU",
+      "d": "Outil tranchant"
+    },
+    {
+      "w": "LIME",
+      "d": "Outil pour lisser"
+    },
+    {
+      "w": "ETAU",
+      "d": "Outil de serrage"
+    },
+    {
+      "w": "PERCEUSE",
+      "d": "Outil pour faire des trous"
+    },
+    {
+      "w": "PLANE",
+      "d": "Outil de travail"
+    },
+    {
+      "w": "RABOT",
+      "d": "Outil pour aplanir le bois"
+    },
+    {
+      "w": "CISEAUX",
+      "d": "Outil de coupe à deux lames"
+    },
+    {
+      "w": "LEVIER",
+      "d": "Outil de travail"
+    },
+    {
+      "w": "CLOU",
+      "d": "Outil de travail"
+    },
+    {
+      "w": "VIS",
+      "d": "Outil de travail"
+    },
+    {
+      "w": "ECROU",
+      "d": "Outil de travail"
+    },
+    {
+      "w": "BOULON",
+      "d": "Outil de travail"
+    },
+    {
+      "w": "SERRE",
+      "d": "Outil de travail"
+    },
+    {
+      "w": "EQUERRE",
+      "d": "Outil d'angle droit"
+    },
+    {
+      "w": "TRUELLE",
+      "d": "Outil de travail"
+    },
+    {
+      "w": "PELLE",
+      "d": "Outil pour creuser"
+    },
+    {
+      "w": "PIOCHE",
+      "d": "Outil de travail"
+    },
+    {
+      "w": "HACHE",
+      "d": "Outil pour abattre du bois"
+    },
+    {
+      "w": "SERPE",
+      "d": "Outil de travail"
+    },
+    {
+      "w": "FORET",
+      "d": "Pointe de perçage"
+    },
+    {
+      "w": "MEULEUSE",
+      "d": "Outil de travail"
+    },
+    {
+      "w": "POINCON",
+      "d": "Outil de travail"
+    },
+    {
+      "w": "BURIN",
+      "d": "Outil de travail"
+    }
+  ],
+  "Meteo": [
+    {
+      "w": "SOLEIL",
+      "d": "Étoile qui éclaire la Terre"
+    },
+    {
+      "w": "PLUIE",
+      "d": "Gouttes du ciel"
+    },
+    {
+      "w": "NUAGE",
+      "d": "Amas visible de vapeur d'eau"
+    },
+    {
+      "w": "VENT",
+      "d": "Courant d'air"
+    },
+    {
+      "w": "ORAGE",
+      "d": "Tempête avec éclairs"
+    },
+    {
+      "w": "NEIGE",
+      "d": "Flocons blancs"
+    },
+    {
+      "w": "GRELE",
+      "d": "Précipitation de grésil"
+    },
+    {
+      "w": "BROUILLARD",
+      "d": "Nuage au sol"
+    },
+    {
+      "w": "ARCENCIEL",
+      "d": "Phénomène météorologique"
+    },
+    {
+      "w": "TEMPETE",
+      "d": "Vent violent"
+    },
+    {
+      "w": "CYCLONE",
+      "d": "Tempête tropicale"
+    },
+    {
+      "w": "RAFALE",
+      "d": "Phénomène météorologique"
+    },
+    {
+      "w": "ECLAIR",
+      "d": "Phénomène météorologique"
+    },
+    {
+      "w": "TONNERRE",
+      "d": "Phénomène météorologique"
+    },
+    {
+      "w": "FOUDRE",
+      "d": "Décharge électrique dans un orage"
+    },
+    {
+      "w": "BRUME",
+      "d": "Brouillard léger"
+    },
+    {
+      "w": "GIVRE",
+      "d": "Glace sur les surfaces"
+    },
+    {
+      "w": "VERGLAS",
+      "d": "Phénomène météorologique"
+    },
+    {
+      "w": "BRISE",
+      "d": "Phénomène météorologique"
+    },
+    {
+      "w": "AVERSE",
+      "d": "Phénomène météorologique"
+    },
+    {
+      "w": "DELUGE",
+      "d": "Phénomène météorologique"
+    },
+    {
+      "w": "CANICULE",
+      "d": "Phénomène météorologique"
+    },
+    {
+      "w": "SECHERESSE",
+      "d": "Période sans pluie"
+    },
+    {
+      "w": "TORNADE",
+      "d": "Phénomène météorologique"
+    },
+    {
+      "w": "OURAGAN",
+      "d": "Grande tempête tropicale"
+    },
+    {
+      "w": "HUMIDITE",
+      "d": "Teneur en eau de l'air"
+    },
+    {
+      "w": "ROSEE",
+      "d": "Gouttes sur l'herbe"
+    },
+    {
+      "w": "BRUINE",
+      "d": "Phénomène météorologique"
+    },
+    {
+      "w": "CLIMAT",
+      "d": "Météo moyenne d'une région"
+    },
+    {
+      "w": "MOUSSON",
+      "d": "Phénomène météorologique"
+    }
+  ],
+  "Materiaux": [
+    {
+      "w": "BOIS",
+      "d": "Matériau issu des arbres"
+    },
+    {
+      "w": "FER",
+      "d": "Métal gris argenté"
+    },
+    {
+      "w": "ACIER",
+      "d": "Alliage de fer et de carbone"
+    },
+    {
+      "w": "VERRE",
+      "d": "Matériau transparent"
+    },
+    {
+      "w": "PLASTIQUE",
+      "d": "Matériau synthétique"
+    },
+    {
+      "w": "BETON",
+      "d": "Matériau de construction"
+    },
+    {
+      "w": "BRIQUE",
+      "d": "Rouge orangé foncé"
+    },
+    {
+      "w": "CUIR",
+      "d": "Matériau issu de la peau"
+    },
+    {
+      "w": "CAOUTCHOUC",
+      "d": "Matériau"
+    },
+    {
+      "w": "ALUMINIUM",
+      "d": "Métal léger"
+    },
+    {
+      "w": "CUIVRE",
+      "d": "Métal rougeâtre conducteur"
+    },
+    {
+      "w": "OR",
+      "d": "Métal précieux jaune"
+    },
+    {
+      "w": "ARGENT",
+      "d": "Couleur métallique brillante"
+    },
+    {
+      "w": "MARBRE",
+      "d": "Matériau"
+    },
+    {
+      "w": "GRANIT",
+      "d": "Pierre ignée"
+    },
+    {
+      "w": "PLATRE",
+      "d": "Matériau"
+    },
+    {
+      "w": "CIMENT",
+      "d": "Matériau"
+    },
+    {
+      "w": "SABLE",
+      "d": "Petits grains"
+    },
+    {
+      "w": "ARGILE",
+      "d": "Terre fine"
+    },
+    {
+      "w": "PIERRE",
+      "d": "Matériau naturel dur"
+    },
+    {
+      "w": "ARDOISE",
+      "d": "Pierre fine"
+    },
+    {
+      "w": "ZINC",
+      "d": "Métal gris utilisé en toiture"
+    },
+    {
+      "w": "PLOMB",
+      "d": "Métal lourd"
+    },
+    {
+      "w": "BRONZE",
+      "d": "Couleur métallique rougeâtre"
+    },
+    {
+      "w": "LAITON",
+      "d": "Matériau"
+    },
+    {
+      "w": "TITANE",
+      "d": "Métal résistant"
+    },
+    {
+      "w": "CARTON",
+      "d": "Papier épais"
+    },
+    {
+      "w": "PAPIER",
+      "d": "Feuille fabriquée à partir de pâte"
+    },
+    {
+      "w": "TISSU",
+      "d": "Matériau textile"
+    },
+    {
+      "w": "LAINE",
+      "d": "Fibre animale chaude"
+    }
+  ],
+  "Boissons": [
+    {
+      "w": "EAU",
+      "d": "Boisson essentielle à la vie"
+    },
+    {
+      "w": "CAFE",
+      "d": "Boisson chaude stimulante"
+    },
+    {
+      "w": "THE",
+      "d": "Infusion de feuilles"
+    },
+    {
+      "w": "JUS",
+      "d": "Liquide extrait des fruits"
+    },
+    {
+      "w": "LAIT",
+      "d": "Boisson blanche des mammifères"
+    },
+    {
+      "w": "BIERE",
+      "d": "Boisson de céréales fermentées"
+    },
+    {
+      "w": "VIN",
+      "d": "Boisson alcoolisée de raisin"
+    },
+    {
+      "w": "CIDRE",
+      "d": "Boisson de pommes fermentées"
+    },
+    {
+      "w": "SODA",
+      "d": "Boisson gazeuse sucrée"
+    },
+    {
+      "w": "CHOCOLAT",
+      "d": "Boisson chaude à base de cacao"
+    },
+    {
+      "w": "INFUSION",
+      "d": "Boisson"
+    },
+    {
+      "w": "SIROP",
+      "d": "Boisson"
+    },
+    {
+      "w": "MILKSHAKE",
+      "d": "Boisson"
+    },
+    {
+      "w": "COCKTAIL",
+      "d": "Mélange d'alcool et de jus"
+    },
+    {
+      "w": "LIMONADE",
+      "d": "Boisson au citron"
+    },
+    {
+      "w": "CAPPUCCINO",
+      "d": "Boisson"
+    },
+    {
+      "w": "ESPRESSO",
+      "d": "Boisson"
+    },
+    {
+      "w": "TISANE",
+      "d": "Infusion d'herbes"
+    },
+    {
+      "w": "CHAMPAGNE",
+      "d": "Boisson"
+    },
+    {
+      "w": "WHISKY",
+      "d": "Alcool de céréales vieilli"
+    },
+    {
+      "w": "RHUM",
+      "d": "Alcool de canne à sucre"
+    },
+    {
+      "w": "VODKA",
+      "d": "Alcool de grains"
+    },
+    {
+      "w": "PUNCH",
+      "d": "Boisson"
+    },
+    {
+      "w": "SMOOTHIE",
+      "d": "Boisson"
+    },
+    {
+      "w": "GRENADINE",
+      "d": "Boisson"
+    },
+    {
+      "w": "ORANGEADE",
+      "d": "Boisson"
+    },
+    {
+      "w": "LATTE",
+      "d": "Boisson"
+    },
+    {
+      "w": "PORTO",
+      "d": "Boisson"
+    },
+    {
+      "w": "KIR",
+      "d": "Boisson"
+    },
+    {
+      "w": "TONIC",
+      "d": "Boisson"
+    }
+  ],
+  "Jouets": [
+    {
+      "w": "POUPEE",
+      "d": "Jouet en forme de personne"
+    },
+    {
+      "w": "BALLON",
+      "d": "Objet gonflable"
+    },
+    {
+      "w": "VOITURE",
+      "d": "Véhicule à quatre roues"
+    },
+    {
+      "w": "PUZZLE",
+      "d": "Jeu d'assemblage de pièces"
+    },
+    {
+      "w": "LEGO",
+      "d": "Briques de construction"
+    },
+    {
+      "w": "DINOSAURE",
+      "d": "Jouet"
+    },
+    {
+      "w": "OURSON",
+      "d": "Jouet"
+    },
+    {
+      "w": "TROTTEUR",
+      "d": "Jouet"
+    },
+    {
+      "w": "TOUPIE",
+      "d": "Jouet"
+    },
+    {
+      "w": "MAISON",
+      "d": "Jouet"
+    },
+    {
+      "w": "CUBE",
+      "d": "Solide à six faces"
+    },
+    {
+      "w": "FUSEE",
+      "d": "Véhicule spatial"
+    },
+    {
+      "w": "AVION",
+      "d": "Jouet qui vole"
+    },
+    {
+      "w": "TRAIN",
+      "d": "Jouet qui roule sur des rails"
+    },
+    {
+      "w": "ROBOT",
+      "d": "Machine jouet"
+    },
+    {
+      "w": "PELUCHE",
+      "d": "Jouet"
+    },
+    {
+      "w": "BILLE",
+      "d": "Petite sphère de verre"
+    },
+    {
+      "w": "CERFVOLANT",
+      "d": "Jouet"
+    },
+    {
+      "w": "YOYO",
+      "d": "Jouet qui monte et descend"
+    },
+    {
+      "w": "TRICYCLE",
+      "d": "Jouet"
+    },
+    {
+      "w": "DOMINO",
+      "d": "Jeu de tuiles numérotées"
+    },
+    {
+      "w": "MARIONNETTE",
+      "d": "Jouet"
+    },
+    {
+      "w": "CONSOLE",
+      "d": "Jouet"
+    },
+    {
+      "w": "DINETTE",
+      "d": "Jouet"
+    },
+    {
+      "w": "HOCHET",
+      "d": "Jouet"
+    },
+    {
+      "w": "PLAYMOBIL",
+      "d": "Jouet"
+    },
+    {
+      "w": "MECCANO",
+      "d": "Jouet"
+    },
+    {
+      "w": "CARTES",
+      "d": "Jeu de cartes à jouer"
+    },
+    {
+      "w": "TRAMPOLINE",
+      "d": "Jouet"
+    },
+    {
+      "w": "TAMBOUR",
+      "d": "Instrument de percussion jouet"
+    }
+  ],
+  "Planetes": [
+    {
+      "w": "MERCURE",
+      "d": "Planète la plus proche du Soleil"
+    },
+    {
+      "w": "VENUS",
+      "d": "Planète la plus chaude"
+    },
+    {
+      "w": "TERRE",
+      "d": "Notre planète bleue"
+    },
+    {
+      "w": "MARS",
+      "d": "La planète rouge"
+    },
+    {
+      "w": "JUPITER",
+      "d": "Plus grande planète du système solaire"
+    },
+    {
+      "w": "SATURNE",
+      "d": "Planète aux anneaux"
+    },
+    {
+      "w": "URANUS",
+      "d": "Géante de glace inclinée"
+    },
+    {
+      "w": "NEPTUNE",
+      "d": "Planète la plus éloignée"
+    },
+    {
+      "w": "PLUTON",
+      "d": "Corps céleste"
+    },
+    {
+      "w": "SOLEIL",
+      "d": "Notre étoile"
+    },
+    {
+      "w": "LUNE",
+      "d": "Satellite naturel de la Terre"
+    },
+    {
+      "w": "METEORE",
+      "d": "Étoile filante"
+    },
+    {
+      "w": "COMETE",
+      "d": "Corps glacé avec une queue"
+    },
+    {
+      "w": "GALAXIE",
+      "d": "Amas d'étoiles"
+    },
+    {
+      "w": "NEBULEUSE",
+      "d": "Corps céleste"
+    },
+    {
+      "w": "SATELLITE",
+      "d": "Corps céleste"
+    },
+    {
+      "w": "ETOILE",
+      "d": "Corps céleste lumineux"
+    },
+    {
+      "w": "ASTEROIDE",
+      "d": "Corps céleste"
+    },
+    {
+      "w": "ORBITE",
+      "d": "Corps céleste"
+    },
+    {
+      "w": "COSMOS",
+      "d": "Corps céleste"
+    },
+    {
+      "w": "UNIVERS",
+      "d": "Corps céleste"
+    },
+    {
+      "w": "ECLIPSE",
+      "d": "Corps céleste"
+    },
+    {
+      "w": "TELESCOPE",
+      "d": "Corps céleste"
+    },
+    {
+      "w": "ASTRONAUTE",
+      "d": "Corps céleste"
+    },
+    {
+      "w": "CRATERE",
+      "d": "Corps céleste"
+    },
+    {
+      "w": "GRAVITE",
+      "d": "Corps céleste"
+    },
+    {
+      "w": "ANNEAU",
+      "d": "Corps céleste"
+    },
+    {
+      "w": "PULSAR",
+      "d": "Corps céleste"
+    },
+    {
+      "w": "QUASAR",
+      "d": "Corps céleste"
+    },
+    {
+      "w": "ZENITH",
+      "d": "Corps céleste"
+    }
+  ],
+  "Poissons": [
+    {
+      "w": "SAUMON",
+      "d": "Poisson migrateur rose"
+    },
+    {
+      "w": "THON",
+      "d": "Grand poisson des océans"
+    },
+    {
+      "w": "TRUITE",
+      "d": "Poisson d'eau douce"
+    },
+    {
+      "w": "SARDINE",
+      "d": "Petit poisson gras en banc"
+    },
+    {
+      "w": "MORUE",
+      "d": "Poisson blanc de pêche"
+    },
+    {
+      "w": "REQUIN",
+      "d": "Prédateur marin redouté"
+    },
+    {
+      "w": "RAIE",
+      "d": "Poisson plat au corps aplati"
+    },
+    {
+      "w": "ANGUILLE",
+      "d": "Poisson serpentiforme"
+    },
+    {
+      "w": "BROCHET",
+      "d": "Prédateur des étangs"
+    },
+    {
+      "w": "CARPE",
+      "d": "Poisson d'ornement koi"
+    },
+    {
+      "w": "SOLE",
+      "d": "Poisson plat comestible"
+    },
+    {
+      "w": "BAR",
+      "d": "Poisson des côtes"
+    },
+    {
+      "w": "HARENG",
+      "d": "Poisson"
+    },
+    {
+      "w": "MAQUEREAU",
+      "d": "Poisson"
+    },
+    {
+      "w": "ESPADON",
+      "d": "Poisson"
+    },
+    {
+      "w": "DORADE",
+      "d": "Poisson argenté de Méditerranée"
+    },
+    {
+      "w": "LOTTE",
+      "d": "Poisson"
+    },
+    {
+      "w": "MERLAN",
+      "d": "Poisson"
+    },
+    {
+      "w": "CABILLAUD",
+      "d": "Poisson"
+    },
+    {
+      "w": "FLETAN",
+      "d": "Poisson"
+    },
+    {
+      "w": "TURBOT",
+      "d": "Poisson"
+    },
+    {
+      "w": "ROUGET",
+      "d": "Poisson"
+    },
+    {
+      "w": "PERCHE",
+      "d": "Poisson de pêche en eau douce"
+    },
+    {
+      "w": "GOUJON",
+      "d": "Poisson"
+    },
+    {
+      "w": "TANCHE",
+      "d": "Poisson"
+    },
+    {
+      "w": "SILURE",
+      "d": "Poisson"
+    },
+    {
+      "w": "BARBEAU",
+      "d": "Poisson"
+    },
+    {
+      "w": "VIVE",
+      "d": "Poisson"
+    },
+    {
+      "w": "LIEU",
+      "d": "Poisson"
+    },
+    {
+      "w": "ANCHOIS",
+      "d": "Poisson"
+    }
+  ],
+  "Animaux sauvages": [
+    {
+      "w": "LION",
+      "d": "Roi de la savane"
+    },
+    {
+      "w": "TIGRE",
+      "d": "Grand félin rayé"
+    },
+    {
+      "w": "ELEPHANT",
+      "d": "Plus grand mammifère terrestre"
+    },
+    {
+      "w": "GIRAFE",
+      "d": "Animal au long cou"
+    },
+    {
+      "w": "ZEBRE",
+      "d": "Cheval rayé de la savane"
+    },
+    {
+      "w": "SINGE",
+      "d": "Primate agile"
+    },
+    {
+      "w": "LOUP",
+      "d": "Canidé sauvage vivant en meute"
+    },
+    {
+      "w": "OURS",
+      "d": "Grand mammifère des forêts"
+    },
+    {
+      "w": "RENARD",
+      "d": "Carnivore rusé à la queue fournie"
+    },
+    {
+      "w": "CERF",
+      "d": "Ruminant aux bois ramifiés"
+    },
+    {
+      "w": "SANGLIER",
+      "d": "Animal sauvage"
+    },
+    {
+      "w": "PANTHERE",
+      "d": "Grand félin tacheté"
+    },
+    {
+      "w": "CIVETTE",
+      "d": "Animal sauvage"
+    },
+    {
+      "w": "GENETTE",
+      "d": "Animal sauvage"
+    },
+    {
+      "w": "RHINOCEROS",
+      "d": "Animal sauvage"
+    },
+    {
+      "w": "HIPPOPOTAME",
+      "d": "Animal sauvage"
+    },
+    {
+      "w": "GUEPARD",
+      "d": "Animal sauvage"
+    },
+    {
+      "w": "LEOPARD",
+      "d": "Animal sauvage"
+    },
+    {
+      "w": "HYENE",
+      "d": "Animal sauvage"
+    },
+    {
+      "w": "CROCODILE",
+      "d": "Animal sauvage"
+    },
+    {
+      "w": "BUFFLE",
+      "d": "Animal sauvage"
+    },
+    {
+      "w": "ANTILOPE",
+      "d": "Animal sauvage"
+    },
+    {
+      "w": "GAZELLE",
+      "d": "Antilope rapide et gracieuse"
+    },
+    {
+      "w": "CHAMEAU",
+      "d": "Animal sauvage"
+    },
+    {
+      "w": "KANGOUROU",
+      "d": "Animal sauvage"
+    },
+    {
+      "w": "KOALA",
+      "d": "Animal australien des eucalyptus"
+    },
+    {
+      "w": "PANDA",
+      "d": "Ours noir et blanc mangeur de bambou"
+    },
+    {
+      "w": "LYNX",
+      "d": "Félin aux pattes fourrues"
+    },
+    {
+      "w": "BLAIREAU",
+      "d": "Animal sauvage"
+    },
+    {
+      "w": "CHAMOIS",
+      "d": "Animal sauvage"
+    },
+    {
+      "w": "BISON",
+      "d": "Animal sauvage"
+    },
+    {
+      "w": "GORILLE",
+      "d": "Animal sauvage"
+    }
+  ],
+  "Architecture": [
+    {
+      "w": "CATHEDRALE",
+      "d": "Église majeure"
+    },
+    {
+      "w": "CHATEAU",
+      "d": "Résidence seigneuriale"
+    },
+    {
+      "w": "COLONNE",
+      "d": "Squelette du dos"
+    },
+    {
+      "w": "VOUTE",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "ARCHE",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "FACADE",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "COUPOLE",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "CLOCHER",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "PONT",
+      "d": "Construction pour traverser"
+    },
+    {
+      "w": "TOUR",
+      "d": "Monument vertical"
+    },
+    {
+      "w": "PALAIS",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "BALCON",
+      "d": "Plateforme extérieure"
+    },
+    {
+      "w": "FRONTON",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "ESCALIER",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "GARGOUILLE",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "ARCADE",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "CORNICHE",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "PILIER",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "FONDATION",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "TOITURE",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "CHARPENTE",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "MOSAIQUE",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "VITRAIL",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "FENETRE",
+      "d": "Ouverture pour voir"
+    },
+    {
+      "w": "PORTAIL",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "REMPART",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "DONJON",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "PYRAMIDE",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "TEMPLE",
+      "d": "Élément architectural"
+    },
+    {
+      "w": "MOSQUEE",
+      "d": "Élément architectural"
+    }
+  ],
+  "Legumes": [
+    {
+      "w": "CAROTTE",
+      "d": "Légume orange riche en vitamine A"
+    },
+    {
+      "w": "PATATE",
+      "d": "Tubercule comestible"
+    },
+    {
+      "w": "TOMATE",
+      "d": "Fruit rouge utilisé en cuisine"
+    },
+    {
+      "w": "CONCOMBRE",
+      "d": "Légume"
+    },
+    {
+      "w": "SALADE",
+      "d": "Légume"
+    },
+    {
+      "w": "OIGNON",
+      "d": "Légume qui fait pleurer"
+    },
+    {
+      "w": "AIL",
+      "d": "Aromate piquant"
+    },
+    {
+      "w": "POIREAU",
+      "d": "Légume blanc et vert allongé"
+    },
+    {
+      "w": "CELERI",
+      "d": "Légume à tige verte"
+    },
+    {
+      "w": "RADIS",
+      "d": "Petit légume rouge croquant"
+    },
+    {
+      "w": "EPINARD",
+      "d": "Légume vert feuillu"
+    },
+    {
+      "w": "CHOU",
+      "d": "Légume en boule verte"
+    },
+    {
+      "w": "NAVET",
+      "d": "Racine blanche comestible"
+    },
+    {
+      "w": "COURGE",
+      "d": "Grand légume orange d'automne"
+    },
+    {
+      "w": "COURGETTE",
+      "d": "Légume vert allongé d'été"
+    },
+    {
+      "w": "AUBERGINE",
+      "d": "Légume"
+    },
+    {
+      "w": "POIVRON",
+      "d": "Légume"
+    },
+    {
+      "w": "HARICOT",
+      "d": "Légume"
+    },
+    {
+      "w": "LENTILLE",
+      "d": "Légume"
+    },
+    {
+      "w": "POIS",
+      "d": "Petit légume vert rond"
+    },
+    {
+      "w": "MAIS",
+      "d": "Épi jaune sucré"
+    },
+    {
+      "w": "CHAMPIGNON",
+      "d": "Légume"
+    },
+    {
+      "w": "ENDIVE",
+      "d": "Légume vert et blanc"
+    },
+    {
+      "w": "BETTERAVE",
+      "d": "Légume rouge sucré"
+    },
+    {
+      "w": "PANAIS",
+      "d": "Racine blanche comestible"
+    },
+    {
+      "w": "ECHALOTE",
+      "d": "Herbe aromatique"
+    },
+    {
+      "w": "FENOUIL",
+      "d": "Épice douce"
+    },
+    {
+      "w": "CITROUILLE",
+      "d": "Légume"
+    },
+    {
+      "w": "ARTICHAUT",
+      "d": "Légume en forme de boule"
+    },
+    {
+      "w": "ASPERGES",
+      "d": "Légume"
+    }
+  ],
+  "Oiseaux": [
+    {
+      "w": "MOINEAU",
+      "d": "Petit oiseau des jardins"
+    },
+    {
+      "w": "CORBEAU",
+      "d": "Oiseau noir intelligent"
+    },
+    {
+      "w": "AIGLE",
+      "d": "Rapace majestueux"
+    },
+    {
+      "w": "FAUCON",
+      "d": "Rapace rapide"
+    },
+    {
+      "w": "PERDRIX",
+      "d": "Oiseau"
+    },
+    {
+      "w": "CIGOGNE",
+      "d": "Oiseau"
+    },
+    {
+      "w": "MOUETTE",
+      "d": "Oiseau des côtes"
+    },
+    {
+      "w": "GOELAND",
+      "d": "Oiseau"
+    },
+    {
+      "w": "CANARI",
+      "d": "Petit oiseau jaune chantant"
+    },
+    {
+      "w": "SERIN",
+      "d": "Oiseau"
+    },
+    {
+      "w": "COLIBRI",
+      "d": "Oiseau"
+    },
+    {
+      "w": "FLAMANT",
+      "d": "Oiseau rose des marais"
+    },
+    {
+      "w": "PELICAN",
+      "d": "Oiseau"
+    },
+    {
+      "w": "MANCHOT",
+      "d": "Oiseau"
+    },
+    {
+      "w": "PINGOUIN",
+      "d": "Oiseau qui ne vole pas, vit au froid"
+    },
+    {
+      "w": "AUTRUCHE",
+      "d": "Plus grand oiseau, ne vole pas"
+    },
+    {
+      "w": "DINDON",
+      "d": "Oiseau"
+    },
+    {
+      "w": "PIGEON",
+      "d": "Oiseau des villes"
+    },
+    {
+      "w": "HIRONDELLE",
+      "d": "Oiseau migrateur du printemps"
+    },
+    {
+      "w": "MESANGE",
+      "d": "Petit oiseau jaune et noir"
+    },
+    {
+      "w": "ROSSIGNOL",
+      "d": "Oiseau"
+    },
+    {
+      "w": "ALOUETTE",
+      "d": "Oiseau"
+    },
+    {
+      "w": "CAILLE",
+      "d": "Oiseau"
+    },
+    {
+      "w": "FAISAN",
+      "d": "Oiseau"
+    },
+    {
+      "w": "VANNEAU",
+      "d": "Oiseau"
+    },
+    {
+      "w": "MILAN",
+      "d": "Oiseau"
+    },
+    {
+      "w": "GRUE",
+      "d": "Oiseau"
+    },
+    {
+      "w": "TOUCAN",
+      "d": "Oiseau au grand bec coloré"
+    },
+    {
+      "w": "GRANDDUC",
+      "d": "Oiseau"
+    },
+    {
+      "w": "HUPPE",
+      "d": "Oiseau"
+    }
+  ],
+  "Arbres": [
+    {
+      "w": "CHENE",
+      "d": "Grand arbre au bois dur"
+    },
+    {
+      "w": "HETRE",
+      "d": "Arbre des forêts tempérées"
+    },
+    {
+      "w": "SAPIN",
+      "d": "Conifère de Noël"
+    },
+    {
+      "w": "PIN",
+      "d": "Conifère à aiguilles"
+    },
+    {
+      "w": "SAULE",
+      "d": "Arbre aux branches pendantes"
+    },
+    {
+      "w": "BOULEAU",
+      "d": "Arbre au tronc blanc"
+    },
+    {
+      "w": "ERABLE",
+      "d": "Arbre de la sève d'érable"
+    },
+    {
+      "w": "TILLEUL",
+      "d": "Arbre aux fleurs odorantes"
+    },
+    {
+      "w": "FRENE",
+      "d": "Arbre ou plante"
+    },
+    {
+      "w": "ORME",
+      "d": "Arbre des avenues"
+    },
+    {
+      "w": "PEUPLIER",
+      "d": "Arbre ou plante"
+    },
+    {
+      "w": "AULNE",
+      "d": "Arbre ou plante"
+    },
+    {
+      "w": "NOYER",
+      "d": "Arbre qui donne les noix"
+    },
+    {
+      "w": "CHATAIGNIER",
+      "d": "Arbre ou plante"
+    },
+    {
+      "w": "CERISIER",
+      "d": "Arbre fruitier à cerises"
+    },
+    {
+      "w": "POMMIER",
+      "d": "Arbre fruitier à pommes"
+    },
+    {
+      "w": "POIRIER",
+      "d": "Arbre fruitier à poires"
+    },
+    {
+      "w": "ORANGER",
+      "d": "Arbre fruitier à oranges"
+    },
+    {
+      "w": "PALMIER",
+      "d": "Arbre tropical aux feuilles palmées"
+    },
+    {
+      "w": "BAMBOU",
+      "d": "Plante qui pousse très vite"
+    },
+    {
+      "w": "CACTUS",
+      "d": "Arbre ou plante"
+    },
+    {
+      "w": "OLIVIER",
+      "d": "Arbre méditerranéen à huile"
+    },
+    {
+      "w": "LAURIER",
+      "d": "Arbre aromatique"
+    },
+    {
+      "w": "LIERRE",
+      "d": "Arbre ou plante"
+    },
+    {
+      "w": "MIMOSA",
+      "d": "Arbre ou plante"
+    },
+    {
+      "w": "ACACIA",
+      "d": "Arbre ou plante"
+    },
+    {
+      "w": "CYPRES",
+      "d": "Arbre méditerranéen"
+    },
+    {
+      "w": "MARRONNIER",
+      "d": "Arbre ou plante"
+    },
+    {
+      "w": "TILLEUL",
+      "d": "Arbre aux fleurs odorantes"
+    }
+  ],
+  "Instruments": [
+    {
+      "w": "PIANO",
+      "d": "Instrument à clavier et cordes"
+    },
+    {
+      "w": "GUITARE",
+      "d": "Instrument à six cordes"
+    },
+    {
+      "w": "VIOLON",
+      "d": "Instrument à archet"
+    },
+    {
+      "w": "FLUTE",
+      "d": "Instrument à vent transversal"
+    },
+    {
+      "w": "TROMPETTE",
+      "d": "Instrument à vent avec piston"
+    },
+    {
+      "w": "TAMBOUR",
+      "d": "Instrument de percussion"
+    },
+    {
+      "w": "HARPE",
+      "d": "Instrument celtique"
+    },
+    {
+      "w": "ACCORDEON",
+      "d": "Instrument de musique"
+    },
+    {
+      "w": "SAXOPHONE",
+      "d": "Instrument à vent en laiton"
+    },
+    {
+      "w": "CLARINETTE",
+      "d": "Instrument à vent en bois"
+    },
+    {
+      "w": "GONG",
+      "d": "Instrument de percussion métallique"
+    },
+    {
+      "w": "CYMBALES",
+      "d": "Instrument de musique"
+    },
+    {
+      "w": "UKULELE",
+      "d": "Petite guitare hawaïenne"
+    },
+    {
+      "w": "BANJO",
+      "d": "Instrument à cordes rond"
+    },
+    {
+      "w": "MANDOLINE",
+      "d": "Instrument à cordes pincées"
+    },
+    {
+      "w": "HARMONICA",
+      "d": "Petit instrument à vent"
+    },
+    {
+      "w": "TUBA",
+      "d": "Grand instrument à vent"
+    },
+    {
+      "w": "COR",
+      "d": "Instrument de chasse"
+    },
+    {
+      "w": "ALTO",
+      "d": "Instrument de la famille du violon"
+    },
+    {
+      "w": "CELLO",
+      "d": "Instrument de musique"
+    },
+    {
+      "w": "MARACAS",
+      "d": "Instrument de percussion latino"
+    },
+    {
+      "w": "TRIANGLE",
+      "d": "Instrument de percussion métallique"
+    },
+    {
+      "w": "XYLOPHONE",
+      "d": "Instrument à barres de bois"
+    },
+    {
+      "w": "CARILLON",
+      "d": "Instrument de musique"
+    },
+    {
+      "w": "ORGUE",
+      "d": "Grand instrument à tuyaux"
+    },
+    {
+      "w": "BUGLE",
+      "d": "Instrument à vent militaire"
+    },
+    {
+      "w": "PICCOLO",
+      "d": "Petite flûte"
+    },
+    {
+      "w": "BARYTON",
+      "d": "Instrument de musique"
+    },
+    {
+      "w": "SAXO",
+      "d": "Instrument de musique"
+    },
+    {
+      "w": "CAISSON",
+      "d": "Instrument de musique"
+    }
+  ],
+  "Metiers": [
+    {
+      "w": "MEDECIN",
+      "d": "Professionnel de santé"
+    },
+    {
+      "w": "AVOCAT",
+      "d": "Professionnel du droit"
+    },
+    {
+      "w": "BOULANGER",
+      "d": "Artisan qui fait le pain"
+    },
+    {
+      "w": "BUCHERON",
+      "d": "Métier"
+    },
+    {
+      "w": "COIFFEUR",
+      "d": "Professionnel des cheveux"
+    },
+    {
+      "w": "PLOMBIER",
+      "d": "Professionnel de la plomberie"
+    },
+    {
+      "w": "MACON",
+      "d": "Métier"
+    },
+    {
+      "w": "PEINTRE",
+      "d": "Artiste ou professionnel de la peinture"
+    },
+    {
+      "w": "MENUISIER",
+      "d": "Métier"
+    },
+    {
+      "w": "SERRURIER",
+      "d": "Métier"
+    },
+    {
+      "w": "POMPIER",
+      "d": "Sauveur du feu"
+    },
+    {
+      "w": "POLICIER",
+      "d": "Agent de l'ordre public"
+    },
+    {
+      "w": "ENSEIGNANT",
+      "d": "Professionnel de l'éducation"
+    },
+    {
+      "w": "INGENIEUR",
+      "d": "Concepteur technique"
+    },
+    {
+      "w": "ARCHITECTE",
+      "d": "Concepteur de bâtiments"
+    },
+    {
+      "w": "COMPTABLE",
+      "d": "Professionnel de la comptabilité"
+    },
+    {
+      "w": "SECRETAIRE",
+      "d": "Métier"
+    },
+    {
+      "w": "JOURNALISTE",
+      "d": "Professionnel de l'information"
+    },
+    {
+      "w": "VETERINAIRE",
+      "d": "Médecin des animaux"
+    },
+    {
+      "w": "AGRICULTEUR",
+      "d": "Métier"
+    },
+    {
+      "w": "PECHEUR",
+      "d": "Professionnel de la pêche"
+    },
+    {
+      "w": "MARIN",
+      "d": "Professionnel de la mer"
+    },
+    {
+      "w": "PILOTE",
+      "d": "Conducteur d'avion"
+    },
+    {
+      "w": "CUISTOT",
+      "d": "Chef de cuisine"
+    },
+    {
+      "w": "PATISSIER",
+      "d": "Métier"
+    },
+    {
+      "w": "LIBRAIRE",
+      "d": "Vendeur de livres"
+    },
+    {
+      "w": "BOUCHER",
+      "d": "Métier"
+    },
+    {
+      "w": "CHARCUTIER",
+      "d": "Métier"
+    },
+    {
+      "w": "HORLOGER",
+      "d": "Métier"
+    },
+    {
+      "w": "TAILLEUR",
+      "d": "Métier"
+    }
+  ],
+  "Transports": [
+    {
+      "w": "VOITURE",
+      "d": "Véhicule à quatre roues"
+    },
+    {
+      "w": "MOTO",
+      "d": "Véhicule à deux roues motorisé"
+    },
+    {
+      "w": "VELO",
+      "d": "Véhicule à deux roues à pédales"
+    },
+    {
+      "w": "BUS",
+      "d": "Véhicule de transport en commun"
+    },
+    {
+      "w": "TRAIN",
+      "d": "Véhicule sur rails"
+    },
+    {
+      "w": "AVION",
+      "d": "Véhicule aérien"
+    },
+    {
+      "w": "BATEAU",
+      "d": "Véhicule maritime"
+    },
+    {
+      "w": "METRO",
+      "d": "Train urbain souterrain"
+    },
+    {
+      "w": "TRAMWAY",
+      "d": "Véhicule urbain sur rails"
+    },
+    {
+      "w": "CAMION",
+      "d": "Véhicule de transport de marchandises"
+    },
+    {
+      "w": "TAXI",
+      "d": "Voiture de course payante"
+    },
+    {
+      "w": "AMBULANCE",
+      "d": "Véhicule de transport"
+    },
+    {
+      "w": "FERRY",
+      "d": "Véhicule de transport"
+    },
+    {
+      "w": "CANOE",
+      "d": "Petit bateau à pagaie"
+    },
+    {
+      "w": "KAYAK",
+      "d": "Véhicule de transport"
+    },
+    {
+      "w": "YACHT",
+      "d": "Véhicule de transport"
+    },
+    {
+      "w": "VOILIER",
+      "d": "Véhicule de transport"
+    },
+    {
+      "w": "TROTINETTE",
+      "d": "Véhicule de transport"
+    },
+    {
+      "w": "FUSEE",
+      "d": "Véhicule spatial"
+    },
+    {
+      "w": "HELICOPTERE",
+      "d": "Aéronef à hélices"
+    },
+    {
+      "w": "TROLLEY",
+      "d": "Véhicule de transport"
+    },
+    {
+      "w": "CARAVANE",
+      "d": "Véhicule de transport"
+    },
+    {
+      "w": "REMORQUE",
+      "d": "Véhicule de transport"
+    },
+    {
+      "w": "DILIGENCE",
+      "d": "Véhicule de transport"
+    },
+    {
+      "w": "CHAR",
+      "d": "Véhicule de transport"
+    },
+    {
+      "w": "TRACTEUR",
+      "d": "Véhicule de transport"
+    },
+    {
+      "w": "MONORAIL",
+      "d": "Véhicule de transport"
+    },
+    {
+      "w": "PAQUEBOT",
+      "d": "Véhicule de transport"
+    },
+    {
+      "w": "CHENILLE",
+      "d": "Véhicule de transport"
+    },
+    {
+      "w": "LOCOMOTIVE",
+      "d": "Véhicule de transport"
+    }
+  ],
+  "Meubles": [
+    {
+      "w": "TABLE",
+      "d": "Meuble plat pour poser des objets"
+    },
+    {
+      "w": "CHAISE",
+      "d": "Meuble pour s'asseoir"
+    },
+    {
+      "w": "LIT",
+      "d": "Meuble pour dormir"
+    },
+    {
+      "w": "CANAPE",
+      "d": "Meuble pour s'asseoir plusieurs"
+    },
+    {
+      "w": "ARMOIRE",
+      "d": "Meuble de rangement vertical"
+    },
+    {
+      "w": "BUREAU",
+      "d": "Table de travail"
+    },
+    {
+      "w": "ETAGERE",
+      "d": "Meuble à rayons"
+    },
+    {
+      "w": "COMMODE",
+      "d": "Meuble à tiroirs"
+    },
+    {
+      "w": "CHEVET",
+      "d": "Petit meuble près du lit"
+    },
+    {
+      "w": "FAUTEUIL",
+      "d": "Chaise avec accoudoirs"
+    },
+    {
+      "w": "TABOURET",
+      "d": "Siège sans dossier"
+    },
+    {
+      "w": "COIFFEUSE",
+      "d": "Meuble"
+    },
+    {
+      "w": "MIROIR",
+      "d": "Surface réfléchissante"
+    },
+    {
+      "w": "RIDEAU",
+      "d": "Meuble"
+    },
+    {
+      "w": "TAPIS",
+      "d": "Revêtement de sol"
+    },
+    {
+      "w": "LUSTRE",
+      "d": "Suspension lumineuse"
+    },
+    {
+      "w": "LAMPE",
+      "d": "Meuble"
+    },
+    {
+      "w": "PENDULE",
+      "d": "Meuble"
+    },
+    {
+      "w": "PLACARD",
+      "d": "Meuble"
+    },
+    {
+      "w": "SOFA",
+      "d": "Canapé confortable"
+    },
+    {
+      "w": "BERCEAU",
+      "d": "Meuble"
+    },
+    {
+      "w": "PUPITRE",
+      "d": "Meuble"
+    },
+    {
+      "w": "CONSOLE",
+      "d": "Meuble"
+    },
+    {
+      "w": "VALET",
+      "d": "Meuble"
+    },
+    {
+      "w": "SECRETAIRE",
+      "d": "Meuble"
+    },
+    {
+      "w": "BUFFET",
+      "d": "Meuble"
+    },
+    {
+      "w": "VAISSELIER",
+      "d": "Meuble"
+    },
+    {
+      "w": "GUERIDON",
+      "d": "Meuble"
+    },
+    {
+      "w": "PARAVENT",
+      "d": "Meuble"
+    },
+    {
+      "w": "BANC",
+      "d": "Long siège"
+    }
+  ],
+  "Fleurs": [
+    {
+      "w": "ROSE",
+      "d": "Fleur épineuse parfumée"
+    },
+    {
+      "w": "TULIPE",
+      "d": "Fleur printanière hollandaise"
+    },
+    {
+      "w": "MARGUERITE",
+      "d": "Fleur blanche au cœur jaune"
+    },
+    {
+      "w": "PAQUERETTE",
+      "d": "Fleur"
+    },
+    {
+      "w": "VIOLETTE",
+      "d": "Petite fleur bleue ou violette"
+    },
+    {
+      "w": "IRIS",
+      "d": "Fleur aux pétales colorés"
+    },
+    {
+      "w": "LYS",
+      "d": "Grande fleur blanche"
+    },
+    {
+      "w": "OEILLET",
+      "d": "Fleur frangée"
+    },
+    {
+      "w": "DAHLIA",
+      "d": "Fleur aux formes variées"
+    },
+    {
+      "w": "GERANIUM",
+      "d": "Fleur"
+    },
+    {
+      "w": "LAVANDE",
+      "d": "Plante parfumée pourpre"
+    },
+    {
+      "w": "COQUELICOT",
+      "d": "Fleur rouge des champs"
+    },
+    {
+      "w": "BLEUET",
+      "d": "Fleur"
+    },
+    {
+      "w": "JONQUILLE",
+      "d": "Fleur"
+    },
+    {
+      "w": "NARCISSUS",
+      "d": "Fleur"
+    },
+    {
+      "w": "BEGONIA",
+      "d": "Fleur"
+    },
+    {
+      "w": "GARDENIA",
+      "d": "Fleur"
+    },
+    {
+      "w": "CAMELIA",
+      "d": "Fleur"
+    },
+    {
+      "w": "AZALEE",
+      "d": "Fleur"
+    },
+    {
+      "w": "PIVOINE",
+      "d": "Grande fleur bouffante"
+    },
+    {
+      "w": "LOTUS",
+      "d": "Fleur"
+    },
+    {
+      "w": "ORCHIDEE",
+      "d": "Fleur exotique élégante"
+    },
+    {
+      "w": "BOURRACHE",
+      "d": "Fleur"
+    },
+    {
+      "w": "TOURNESOL",
+      "d": "Fleur qui suit le soleil"
+    },
+    {
+      "w": "MUGUET",
+      "d": "Petite fleur blanche de mai"
+    },
+    {
+      "w": "FREESIA",
+      "d": "Fleur"
+    },
+    {
+      "w": "GLAIEUL",
+      "d": "Fleur"
+    },
+    {
+      "w": "EDELWEISS",
+      "d": "Fleur"
+    },
+    {
+      "w": "JACINTHE",
+      "d": "Fleur"
+    },
+    {
+      "w": "JASMIN",
+      "d": "Fleur blanche très parfumée"
+    }
+  ],
+  "Monde marin": [
+    {
+      "w": "BALEINE",
+      "d": "Plus grand animal du monde"
+    },
+    {
+      "w": "DAUPHIN",
+      "d": "Mammifère marin intelligent"
+    },
+    {
+      "w": "PIEUVRE",
+      "d": "Céphalopode à huit bras"
+    },
+    {
+      "w": "CRABE",
+      "d": "Crustacé qui marche de côté"
+    },
+    {
+      "w": "HOMARD",
+      "d": "Crustacé noble à grandes pinces"
+    },
+    {
+      "w": "PHOQUE",
+      "d": "Mammifère marin aux pattes palmées"
+    },
+    {
+      "w": "MORSE",
+      "d": "Grand mammifère arctique"
+    },
+    {
+      "w": "LOUTRE",
+      "d": "Animal marin"
+    },
+    {
+      "w": "TORTUE",
+      "d": "Reptile marin à carapace"
+    },
+    {
+      "w": "MEDUSE",
+      "d": "Animal gélifié venimeux"
+    },
+    {
+      "w": "ANEMONE",
+      "d": "Animal marin"
+    },
+    {
+      "w": "CORAIL",
+      "d": "Animal colonial des récifs"
+    },
+    {
+      "w": "NARVAL",
+      "d": "Baleine à longue défense"
+    },
+    {
+      "w": "ORQUE",
+      "d": "Grand prédateur noir et blanc"
+    },
+    {
+      "w": "LAMANTIN",
+      "d": "Animal marin"
+    },
+    {
+      "w": "ECREVISSE",
+      "d": "Crustacé d'eau douce"
+    },
+    {
+      "w": "BIGORNE",
+      "d": "Animal marin"
+    },
+    {
+      "w": "HUITRE",
+      "d": "Mollusque qui produit des perles"
+    },
+    {
+      "w": "MOULE",
+      "d": "Animal marin"
+    },
+    {
+      "w": "COQUILLE",
+      "d": "Animal marin"
+    },
+    {
+      "w": "OURSIN",
+      "d": "Animal marin"
+    },
+    {
+      "w": "CREVETTE",
+      "d": "Petit crustacé comestible"
+    },
+    {
+      "w": "LANGOUSTE",
+      "d": "Animal marin"
+    },
+    {
+      "w": "SEICHE",
+      "d": "Animal marin"
+    },
+    {
+      "w": "RAIE",
+      "d": "Poisson plat au corps aplati"
+    },
+    {
+      "w": "CACHALOT",
+      "d": "Animal marin"
+    },
+    {
+      "w": "ALGUE",
+      "d": "Animal marin"
+    },
+    {
+      "w": "CONQUE",
+      "d": "Animal marin"
+    },
+    {
+      "w": "NAUTILE",
+      "d": "Animal marin"
+    },
+    {
+      "w": "POISSON",
+      "d": "Animal aquatique"
+    },
+    {
+      "w": "PHOQUE",
+      "d": "Mammifère marin aux pattes palmées"
+    },
+    {
+      "w": "PIEUVRE",
+      "d": "Céphalopode à huit bras"
+    }
+  ],
+  "Insectes": [
+    {
+      "w": "ABEILLE",
+      "d": "Insecte producteur de miel"
+    },
+    {
+      "w": "MOUCHE",
+      "d": "Petit insecte volant importun"
+    },
+    {
+      "w": "MOUSTIQUE",
+      "d": "Insecte piqueur nocturne"
+    },
+    {
+      "w": "FOURMI",
+      "d": "Insecte social travailleur"
+    },
+    {
+      "w": "CIGALE",
+      "d": "Insecte qui chante en été"
+    },
+    {
+      "w": "PAPILLON",
+      "d": "Insecte aux ailes colorées"
+    },
+    {
+      "w": "LUCIOLE",
+      "d": "Insecte lumineux la nuit"
+    },
+    {
+      "w": "SAUTERELLE",
+      "d": "Insecte sauteur vert"
+    },
+    {
+      "w": "GRILLON",
+      "d": "Insecte chanteur nocturne"
+    },
+    {
+      "w": "COCCINELLE",
+      "d": "Insecte"
+    },
+    {
+      "w": "TERMITES",
+      "d": "Insecte"
+    },
+    {
+      "w": "LIBELLULE",
+      "d": "Insecte aux ailes transparentes"
+    },
+    {
+      "w": "PHYLLE",
+      "d": "Insecte"
+    },
+    {
+      "w": "PUCERON",
+      "d": "Petit insecte nuisible des plantes"
+    },
+    {
+      "w": "ARAIgNEE",
+      "d": "Arachnée à huit pattes"
+    },
+    {
+      "w": "SCORPION",
+      "d": "Insecte"
+    },
+    {
+      "w": "TARANTULE",
+      "d": "Insecte"
+    },
+    {
+      "w": "MYRIAPEDE",
+      "d": "Insecte"
+    },
+    {
+      "w": "COLOPTE",
+      "d": "Insecte"
+    },
+    {
+      "w": "CLOPORTE",
+      "d": "Insecte"
+    },
+    {
+      "w": "VERLUSOIE",
+      "d": "Insecte"
+    },
+    {
+      "w": "BOUVARD",
+      "d": "Insecte"
+    },
+    {
+      "w": "CARABE",
+      "d": "Insecte"
+    },
+    {
+      "w": "CERFVOLANT",
+      "d": "Insecte"
+    },
+    {
+      "w": "GUEPE",
+      "d": "Insecte"
+    },
+    {
+      "w": "FRELON",
+      "d": "Grand hyménoptère piqueur"
+    },
+    {
+      "w": "BOURDON",
+      "d": "Abeille grosse et velue"
+    },
+    {
+      "w": "PUCE",
+      "d": "Insecte"
+    },
+    {
+      "w": "PUNAISE",
+      "d": "Insecte"
+    },
+    {
+      "w": "CIGALON",
+      "d": "Insecte"
+    }
+  ],
+  "Capitales": [
+    {
+      "w": "PARIS",
+      "d": "Capitale de la France"
+    },
+    {
+      "w": "BRUXELLES",
+      "d": "Capitale de la Belgique"
+    },
+    {
+      "w": "ROME",
+      "d": "Capitale de l'Italie"
+    },
+    {
+      "w": "MADRID",
+      "d": "Capitale de l'Espagne"
+    },
+    {
+      "w": "BERLIN",
+      "d": "Capitale de l'Allemagne"
+    },
+    {
+      "w": "LISBONNE",
+      "d": "Capitale du Portugal"
+    },
+    {
+      "w": "BERNE",
+      "d": "Capitale de la Suisse"
+    },
+    {
+      "w": "OTTAWA",
+      "d": "Capitale du Canada"
+    },
+    {
+      "w": "BRASILIA",
+      "d": "Capitale du Brésil"
+    },
+    {
+      "w": "TOKYO",
+      "d": "Capitale du Japon"
+    },
+    {
+      "w": "KINSHASA",
+      "d": "Capitale"
+    },
+    {
+      "w": "RABAT",
+      "d": "Capitale du Maroc"
+    },
+    {
+      "w": "OSLO",
+      "d": "Capitale de la Norvège"
+    },
+    {
+      "w": "ATHENES",
+      "d": "Capitale de la Grèce"
+    },
+    {
+      "w": "DUBLIN",
+      "d": "Capitale de l'Irlande"
+    },
+    {
+      "w": "VIENNE",
+      "d": "Capitale de l'Autriche"
+    },
+    {
+      "w": "VARSOVIE",
+      "d": "Capitale de la Pologne"
+    },
+    {
+      "w": "STOCKHOLM",
+      "d": "Capitale de la Suède"
+    },
+    {
+      "w": "HELSINKI",
+      "d": "Capitale de la Finlande"
+    },
+    {
+      "w": "COPENHAGUE",
+      "d": "Capitale du Danemark"
+    },
+    {
+      "w": "BUDAPEST",
+      "d": "Capitale"
+    },
+    {
+      "w": "ANKARA",
+      "d": "Capitale de la Turquie"
+    },
+    {
+      "w": "NEW DELHI",
+      "d": "Capitale de l'Inde"
+    },
+    {
+      "w": "PEKIN",
+      "d": "Capitale de la Chine"
+    },
+    {
+      "w": "MEXICO",
+      "d": "Capitale"
+    },
+    {
+      "w": "BUENOS AIRES",
+      "d": "Capitale de l'Argentine"
+    },
+    {
+      "w": "LIMA",
+      "d": "Capitale du Pérou"
+    },
+    {
+      "w": "SANTIAGO",
+      "d": "Capitale du Chili"
+    },
+    {
+      "w": "CANBERRA",
+      "d": "Capitale de l'Australie"
+    },
+    {
+      "w": "TUNIS",
+      "d": "Capitale"
+    }
+  ],
+  "Plats": [
+    {
+      "w": "BOUILLABAISSE",
+      "d": "Mot du thème Plats"
+    },
+    {
+      "w": "RATATOUILLE",
+      "d": "Plat provençal de légumes"
+    },
+    {
+      "w": "CASSOULET",
+      "d": "Plat toulousain de haricots"
+    },
+    {
+      "w": "QUICHE",
+      "d": "Tarte salée au jambon et fromage"
+    },
+    {
+      "w": "TARTIFLETTE",
+      "d": "Mot du thème Plats"
+    },
+    {
+      "w": "MIREPOIX",
+      "d": "Mot du thème Plats"
+    },
+    {
+      "w": "SOUFFLE",
+      "d": "Mot du thème Plats"
+    },
+    {
+      "w": "CROQUEMONCHE",
+      "d": "Mot du thème Plats"
+    },
+    {
+      "w": "ESCALOPE",
+      "d": "Mot du thème Plats"
+    },
+    {
+      "w": "GRATIN",
+      "d": "Plat gratiné au four"
+    },
+    {
+      "w": "PIZZA",
+      "d": "Spécialité napolitaine"
+    },
+    {
+      "w": "PASTA",
+      "d": "Mot du thème Plats"
+    },
+    {
+      "w": "SUSHI",
+      "d": "Riz vinaigré et poisson cru"
+    },
+    {
+      "w": "BURRITO",
+      "d": "Tortilla farcie mexicaine"
+    },
+    {
+      "w": "KEBAB",
+      "d": "Plat de viande grillée en brochette"
+    },
+    {
+      "w": "CURI",
+      "d": "Mot du thème Plats"
+    },
+    {
+      "w": "PAELLA",
+      "d": "Mot du thème Plats"
+    },
+    {
+      "w": "GUMBO",
+      "d": "Mot du thème Plats"
+    },
+    {
+      "w": "BISQUE",
+      "d": "Mot du thème Plats"
+    },
+    {
+      "w": "CROUSTADE",
+      "d": "Mot du thème Plats"
+    },
+    {
+      "w": "FONDUE",
+      "d": "Plat savoyard de fromage fondu"
+    },
+    {
+      "w": "RACLETTE",
+      "d": "Outil pour racler"
+    },
+    {
+      "w": "MADELEINE",
+      "d": "Mot du thème Plats"
+    },
+    {
+      "w": "CROISSANT",
+      "d": "Petit déjeuner français"
+    },
+    {
+      "w": "ECLAIR",
+      "d": "Pâtisserie allongée glacée"
+    },
+    {
+      "w": "TIRAMISU",
+      "d": "Dessert italien au café"
+    },
+    {
+      "w": "PANNACOTTA",
+      "d": "Mot du thème Plats"
+    }
+  ],
+  "Geographie": [
+    {
+      "w": "ALPES",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "PYRENEES",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "HIMALAYA",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "MONTAGNE",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "ANDES",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "NILO",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "AMAZONE",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "JORDAN",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "DANUBE",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "RHONE",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "JURA",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "MASSIF",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "COLINE",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "MANGROVE",
+      "d": "Forêt côtière"
+    },
+    {
+      "w": "SAMBRE",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "SAHARA",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "GIBSON",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "TAIGA",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "STEPPE",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "TUNDRA",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "FIORD",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "GOLFE",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "DETROIT",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "ISTHME",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "PENINSULE",
+      "d": "Lieu géographique"
+    },
+    {
+      "w": "ARCHIPEL",
+      "d": "Ensemble d'îles"
+    },
+    {
+      "w": "LAGUNE",
+      "d": "Eau calme protégée"
+    },
+    {
+      "w": "OASIS",
+      "d": "Point d'eau dans le désert"
+    },
+    {
+      "w": "CANYON",
+      "d": "Profonde vallée encaissée"
+    },
+    {
+      "w": "VOLCAN",
+      "d": "Montagne en éruption"
+    },
+    {
+      "w": "GLACIER",
+      "d": "Massif de glace"
+    },
+    {
+      "w": "DESLERT",
+      "d": "Région aride"
+    },
+    {
+      "w": "MANGROVE",
+      "d": "Forêt côtière"
+    },
+    {
+      "w": "LAGUNE",
+      "d": "Eau calme protégée"
+    },
+    {
+      "w": "BAIE",
+      "d": "Entrée de mer dans les terres"
+    }
+  ]
+}

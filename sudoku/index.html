@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sudoku</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      --paper: #F7F2E7;
+      --paper-line: #E4DAC4;
+      --ink: #1F2A3C;
+      --ink-soft: #55627A;
+      --accent: #B3492E;
+      --accent-soft: #F0D9CE;
+      --ring: #C9BFA5;
+      --green: #2F6B4F;
+      --green-soft: #D4EDDA;
+
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      background-image: repeating-linear-gradient(
+        to bottom, transparent, transparent 27px, var(--paper-line) 28px
+      );
+      padding: 36px 24px 60px;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .wrap { max-width: 980px; margin: 0 auto; }
+
+    .head { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; justify-content: center; }
+    .title {
+      font-size: 30px; font-weight: 700; margin: 0; letter-spacing: -0.01em;
+    }
+    .sub {
+      font-size: 14.5px; color: var(--ink-soft); margin: 6px 0 30px 0; text-align: center;
+    }
+
+    .back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Space Grotesk', sans-serif; font-size: 13.5px; font-weight: 700;
+      color: var(--ink-soft); background: none; border: none; cursor: pointer;
+      margin-bottom: 18px; padding: 0; transition: color .15s;
+      text-decoration: none;
+    }
+    .back:hover { color: var(--accent); }
+
+    .status { min-height: 18px; font-size: 12.5px; margin-top: 10px; }
+    .status.ok { color: var(--green); }
+    .status.warn { color: var(--accent); }
+
+    /* ── Sudoku ── */
+    .sudoku-grid {
+      display: inline-grid;
+      grid-template-columns: repeat(9, 1fr);
+      border: 3px solid var(--ink);
+      background: var(--ink);
+      gap: 1px;
+      margin: 0 auto 18px;
+      user-select: none;
+    }
+    .sudoku-cell {
+      width: 44px; height: 44px;
+      background: #FFFEFB;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 20px; font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      position: relative;
+      transition: background .1s;
+    }
+    .sudoku-cell:hover { background: var(--accent-soft); }
+    .sudoku-cell.selected { background: #FFF3E0 !important; }
+    .sudoku-cell.highlighted { background: #FFF8F0; }
+    .sudoku-cell.same-number { background: #F0E6D8; }
+    .sudoku-cell.given { font-weight: 700; color: var(--ink); }
+    .sudoku-cell.user { color: var(--accent); }
+    .sudoku-cell.error { background: #FDD !important; color: #C00; }
+    .sudoku-cell .sudoku-note {
+      position: absolute; top: 1px; left: 0; right: 0; bottom: 0;
+      display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr);
+      font-size: 8px; font-weight: 400; color: var(--ink-soft);
+      pointer-events: none;
+    }
+    .sudoku-cell .sudoku-note span {
+      display: flex; align-items: center; justify-content: center;
+    }
+    /* 3x3 box borders */
+    .sudoku-cell.box-right { border-right: 2px solid var(--ink); }
+    .sudoku-cell.box-bottom { border-bottom: 2px solid var(--ink); }
+
+    .sudoku-numpad {
+      display: flex; justify-content: center; gap: 6px; margin-bottom: 14px; flex-wrap: wrap;
+    }
+    .sudoku-num-btn {
+      width: 42px; height: 42px; border: 2px solid var(--ink);
+      background: var(--paper); font-family: 'IBM Plex Mono', monospace;
+      font-size: 18px; font-weight: 600; color: var(--ink);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: transform .05s, background .1s;
+    }
+    .sudoku-num-btn:hover { background: var(--accent-soft); }
+    .sudoku-num-btn:active { transform: scale(0.93); }
+    .sudoku-num-btn.completed { opacity: 0.35; }
+
+    .sudoku-actions {
+      display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px;
+    }
+    .sudoku-action-btn {
+      border: 2px solid var(--ink); background: var(--paper);
+      font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700;
+      color: var(--ink); padding: 8px 14px; cursor: pointer;
+      transition: transform .05s, background .1s;
+    }
+    .sudoku-action-btn:hover { background: var(--accent-soft); }
+    .sudoku-action-btn:active { transform: scale(0.96); }
+
+    .sudoku-timer {
+      text-align: center; font-family: 'IBM Plex Mono', monospace;
+      font-size: 18px; color: var(--ink-soft); margin-bottom: 10px;
+    }
+    .sudoku-difficulty {
+      display: flex; gap: 6px; justify-content: center; margin-bottom: 14px; flex-wrap: wrap;
+    }
+    .sudoku-diff-btn {
+      border: 2px solid var(--ink); background: var(--paper);
+      font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700;
+      color: var(--ink); padding: 6px 14px; cursor: pointer;
+      transition: transform .05s, background .1s;
+    }
+    .sudoku-diff-btn:hover { background: var(--accent-soft); }
+    .sudoku-diff-btn.active { background: var(--accent); color: #FFF9F4; }
+
+    .sudoku-panel {
+      display: flex; flex-direction: column; align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="app-root"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+  (function () {
+    const root = document.getElementById('app-root');
+    let state = null;
+
+    // ─── Génération Sudoku ───
+    function generateFull() {
+      const grid = Array.from({ length: 9 }, () => Array(9).fill(0));
+      function isValid(g, r, c, n) {
+        for (let i = 0; i < 9; i++) { if (g[r][i] === n || g[i][c] === n) return false; }
+        const br = Math.floor(r / 3) * 3, bc = Math.floor(c / 3) * 3;
+        for (let i = br; i < br + 3; i++) for (let j = bc; j < bc + 3; j++) if (g[i][j] === n) return false;
+        return true;
+      }
+      function solve(g) {
+        for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++) {
+          if (g[r][c] === 0) {
+            const nums = [1,2,3,4,5,6,7,8,9];
+            for (let k = nums.length - 1; k > 0; k--) { const m = Math.floor(Math.random() * (k + 1)); [nums[k], nums[m]] = [nums[m], nums[k]]; }
+            for (const n of nums) { if (isValid(g, r, c, n)) { g[r][c] = n; if (solve(g)) return true; g[r][c] = 0; } }
+            return false;
+          }
+        }
+        return true;
+      }
+      solve(grid);
+      return grid;
+    }
+
+    function countSolutions(grid, max) {
+      let count = 0;
+      const g = grid.map(r => [...r]);
+      function solve() {
+        for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++) {
+          if (g[r][c] === 0) {
+            for (let n = 1; n <= 9; n++) {
+              let ok = true;
+              for (let i = 0; i < 9; i++) { if (g[r][i] === n || g[i][c] === n) { ok = false; break; } }
+              if (ok) { const br = Math.floor(r/3)*3, bc = Math.floor(c/3)*3; for (let i=br;i<br+3;i++) for (let j=bc;j<bc+3;j++) if (g[i][j]===n) ok=false; }
+              if (ok) { g[r][c] = n; solve(); g[r][c] = 0; if (count >= max) return; }
+            }
+            return;
+          }
+        }
+        count++;
+      }
+      solve();
+      return count;
+    }
+
+    function makePuzzle(full, clues) {
+      const puzzle = full.map(r => [...r]);
+      const positions = [];
+      for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++) positions.push([r, c]);
+      for (let i = positions.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [positions[i], positions[j]] = [positions[j], positions[i]]; }
+      let removed = 0;
+      for (const [r, c] of positions) {
+        if (81 - clues <= removed) break;
+        const backup = puzzle[r][c];
+        puzzle[r][c] = 0;
+        const test = puzzle.map(row => [...row]);
+        if (countSolutions(test, 2) === 1) removed++;
+        else puzzle[r][c] = backup;
+      }
+      return puzzle;
+    }
+
+    // ─── Rendu ───
+    const difficulties = [
+      { label: 'Facile', clues: 42 },
+      { label: 'Moyen', clues: 32 },
+      { label: 'Difficile', clues: 26 },
+      { label: 'Expert', clues: 22 }
+    ];
+
+    function render() {
+      const diff = difficulties[1]; // default: Moyen
+
+      const full = generateFull();
+      const puzzle = makePuzzle(full, diff.clues);
+
+      state = {
+        puzzle, solution: full, board: puzzle.map(r => [...r]),
+        notes: Array.from({ length: 9 }, () => Array.from({ length: 9 }, () => new Set())),
+        given: puzzle.map(r => r.map(v => v !== 0)),
+        selected: null, noteMode: false, timer: 0, timerInterval: null,
+        difficulty: diff.label, finished: false
+      };
+
+      root.innerHTML = `
+        <div class="wrap">
+          <a href="../index.html" class="back">← Accueil</a>
+          <div class="head">
+            <h1 class="title">Sudoku</h1>
+          </div>
+          <p class="sub">Remplissez la grille avec les chiffres de 1 à 9.</p>
+
+          <div class="sudoku-difficulty" id="difficulty">
+            ${difficulties.map(d => `<button class="sudoku-diff-btn${d.label === diff.label ? ' active' : ''}" data-diff="${d.clues}">${d.label}</button>`).join('')}
+          </div>
+
+          <div class="sudoku-panel">
+            <div class="sudoku-timer" id="timer">00:00</div>
+            <div class="sudoku-grid" id="grid"></div>
+            <div class="sudoku-numpad" id="numpad">
+              ${[1,2,3,4,5,6,7,8,9].map(n => `<button class="sudoku-num-btn" data-num="${n}">${n}</button>`).join('')}
+              <button class="sudoku-num-btn" data-num="0" style="font-size:14px">✕</button>
+            </div>
+            <div class="sudoku-actions">
+              <button class="sudoku-action-btn" id="note-btn">📝 Notes</button>
+              <button class="sudoku-action-btn" id="erase-btn">⌫ Effacer</button>
+              <button class="sudoku-action-btn" id="new-btn">🔄 Nouvelle grille</button>
+              <button class="sudoku-action-btn" id="pdf-btn">📄 PDF</button>
+              <button class="sudoku-action-btn" id="solution-btn">💡 Solution</button>
+            </div>
+            <div class="status" id="status"></div>
+          </div>
+        </div>
+      `;
+
+      // Difficulty buttons
+      root.querySelectorAll('#difficulty .sudoku-diff-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const clues = parseInt(btn.dataset.diff, 10);
+          const d = difficulties.find(x => x.clues === clues);
+          startNew(d);
+        });
+      });
+
+      renderGrid();
+      startTimer();
+      bindEvents();
+    }
+
+    function startNew(diff) {
+      if (state && state.timerInterval) clearInterval(state.timerInterval);
+      const full = generateFull();
+      const puzzle = makePuzzle(full, diff.clues);
+      state = {
+        puzzle, solution: full, board: puzzle.map(r => [...r]),
+        notes: Array.from({ length: 9 }, () => Array.from({ length: 9 }, () => new Set())),
+        given: puzzle.map(r => r.map(v => v !== 0)),
+        selected: null, noteMode: false, timer: 0, timerInterval: null,
+        difficulty: diff.label, finished: false
+      };
+      root.querySelectorAll('#difficulty .sudoku-diff-btn').forEach(b => {
+        b.classList.toggle('active', parseInt(b.dataset.diff, 10) === diff.clues);
+      });
+      renderGrid();
+      startTimer();
+      const st = root.querySelector('#status');
+      if (st) { st.textContent = ''; st.className = 'status'; }
+    }
+
+    function startTimer() {
+      if (state.timerInterval) clearInterval(state.timerInterval);
+      state.timer = 0;
+      state.timerInterval = setInterval(() => {
+        state.timer++;
+        const el = root.querySelector('#timer');
+        if (el) {
+          const m = String(Math.floor(state.timer / 60)).padStart(2, '0');
+          const s = String(state.timer % 60).padStart(2, '0');
+          el.textContent = `${m}:${s}`;
+        }
+      }, 1000);
+    }
+
+    function renderGrid() {
+      const gridEl = root.querySelector('#grid');
+      if (!gridEl || !state) return;
+      gridEl.innerHTML = '';
+      const { board, given, notes, selected } = state;
+      const selVal = selected ? board[selected[0]][selected[1]] : 0;
+
+      for (let r = 0; r < 9; r++) {
+        for (let c = 0; c < 9; c++) {
+          const cell = document.createElement('div');
+          cell.className = 'sudoku-cell';
+          if (c === 2 || c === 5) cell.classList.add('box-right');
+          if (r === 2 || r === 5) cell.classList.add('box-bottom');
+
+          const val = board[r][c];
+          if (given[r][c]) cell.classList.add('given');
+          else if (val) cell.classList.add('user');
+
+          if (val && !given[r][c] && val !== state.solution[r][c]) {
+            cell.classList.add('error');
+          }
+
+          if (selected) {
+            if (r === selected[0] && c === selected[1]) cell.classList.add('selected');
+            else if (r === selected[0] || c === selected[1] ||
+              (Math.floor(r/3) === Math.floor(selected[0]/3) && Math.floor(c/3) === Math.floor(selected[1]/3)))
+              cell.classList.add('highlighted');
+            if (selVal && val === selVal && !(r === selected[0] && c === selected[1]))
+              cell.classList.add('same-number');
+          }
+
+          if (val && !notes[r][c].size) {
+            cell.textContent = val;
+          } else if (!val && notes[r][c].size > 0) {
+            const noteDiv = document.createElement('div');
+            noteDiv.className = 'sudoku-note';
+            for (let n = 1; n <= 9; n++) {
+              const span = document.createElement('span');
+              span.textContent = notes[r][c].has(n) ? n : '';
+              noteDiv.appendChild(span);
+            }
+            cell.appendChild(noteDiv);
+          }
+
+          cell.addEventListener('click', () => {
+            state.selected = [r, c];
+            renderGrid();
+          });
+          gridEl.appendChild(cell);
+        }
+      }
+      updateNumpad();
+    }
+
+    function updateNumpad() {
+      if (!state) return;
+      const counts = Array(10).fill(0);
+      for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++) counts[state.board[r][c]]++;
+      root.querySelectorAll('#numpad .sudoku-num-btn').forEach(btn => {
+        const n = parseInt(btn.dataset.num, 10);
+        if (n >= 1 && n <= 9) btn.classList.toggle('completed', counts[n] >= 9);
+      });
+    }
+
+    function bindEvents() {
+      // Numpad
+      root.querySelectorAll('#numpad .sudoku-num-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (!state.selected || state.finished) return;
+          const [r, c] = state.selected;
+          if (state.given[r][c]) return;
+          const n = parseInt(btn.dataset.num, 10);
+          if (n === 0) {
+            state.board[r][c] = 0;
+            state.notes[r][c].clear();
+          } else if (state.noteMode) {
+            if (state.board[r][c] !== 0) return;
+            if (state.notes[r][c].has(n)) state.notes[r][c].delete(n);
+            else state.notes[r][c].add(n);
+          } else {
+            state.board[r][c] = n;
+            state.notes[r][c].clear();
+            for (let i = 0; i < 9; i++) {
+              state.notes[r][i].delete(n);
+              state.notes[i][c].delete(n);
+            }
+            const br = Math.floor(r/3)*3, bc = Math.floor(c/3)*3;
+            for (let i = br; i < br+3; i++) for (let j = bc; j < bc+3; j++) state.notes[i][j].delete(n);
+          }
+          renderGrid();
+          checkComplete();
+        });
+      });
+
+      // Note mode
+      root.querySelector('#note-btn').addEventListener('click', () => {
+        state.noteMode = !state.noteMode;
+        root.querySelector('#note-btn').style.background = state.noteMode ? 'var(--accent-soft)' : '';
+      });
+
+      // Erase
+      root.querySelector('#erase-btn').addEventListener('click', () => {
+        if (!state.selected || state.finished) return;
+        const [r, c] = state.selected;
+        if (state.given[r][c]) return;
+        state.board[r][c] = 0;
+        state.notes[r][c].clear();
+        renderGrid();
+      });
+
+      // New puzzle
+      root.querySelector('#new-btn').addEventListener('click', () => {
+        const clues = parseInt(root.querySelector('#difficulty .sudoku-diff-btn.active')?.dataset.diff || '32', 10);
+        const d = { label: ['Facile','Moyen','Difficile','Expert'][['42','32','26','22'].indexOf(String(clues))] || 'Moyen', clues };
+        startNew(d);
+      });
+
+      // PDF
+      root.querySelector('#pdf-btn').addEventListener('click', exportPDF);
+
+      // Solution
+      root.querySelector('#solution-btn').addEventListener('click', () => {
+        if (!state || state.finished) return;
+        for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++)
+          if (!state.given[r][c]) state.board[r][c] = state.solution[r][c];
+        state.finished = true;
+        if (state.timerInterval) clearInterval(state.timerInterval);
+        renderGrid();
+        const st = root.querySelector('#status');
+        if (st) { st.textContent = 'Solution affichée.'; st.className = 'status warn'; }
+      });
+
+      // Keyboard
+      document.addEventListener('keydown', (e) => {
+        if (state.finished) return;
+        const [r, c] = state.selected || [-1, -1];
+        if (e.key >= '1' && e.key <= '9') {
+          state.noteMode = false;
+          root.querySelector('#note-btn').style.background = '';
+          if (r >= 0 && !state.given[r][c]) {
+            state.board[r][c] = parseInt(e.key, 10);
+            state.notes[r][c].clear();
+            renderGrid();
+            checkComplete();
+          }
+        } else if (e.key === 'Backspace' || e.key === 'Delete' || e.key === '0') {
+          if (r >= 0 && !state.given[r][c]) {
+            state.board[r][c] = 0;
+            state.notes[r][c].clear();
+            renderGrid();
+          }
+        } else if (e.key === 'n' || e.key === 'N') {
+          state.noteMode = !state.noteMode;
+          root.querySelector('#note-btn').style.background = state.noteMode ? 'var(--accent-soft)' : '';
+        } else if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)) {
+          e.preventDefault();
+          let nr = r, nc = c;
+          if (r < 0) { nr = 0; nc = 0; }
+          if (e.key === 'ArrowUp') nr = Math.max(0, r - 1);
+          if (e.key === 'ArrowDown') nr = Math.min(8, r + 1);
+          if (e.key === 'ArrowLeft') nc = Math.max(0, c - 1);
+          if (e.key === 'ArrowRight') nc = Math.min(8, c + 1);
+          state.selected = [nr, nc];
+          renderGrid();
+        }
+      });
+    }
+
+    function checkComplete() {
+      if (!state || state.finished) return;
+      for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++)
+        if (state.board[r][c] === 0 || state.board[r][c] !== state.solution[r][c]) return;
+      state.finished = true;
+      if (state.timerInterval) clearInterval(state.timerInterval);
+      const st = root.querySelector('#status');
+      if (st) {
+        const m = Math.floor(state.timer / 60), s = state.timer % 60;
+        st.textContent = `🎉 Félicitations ! Grille complétée en ${m}m ${s}s (${state.difficulty})`;
+        st.className = 'status ok';
+      }
+    }
+
+    function exportPDF() {
+      if (!state) return;
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ unit: 'cm', format: 'a4' });
+      const pw = 21, ph = 29.7;
+
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(24);
+      doc.text('Sudoku', pw / 2, 2.2, { align: 'center' });
+      doc.setFont('helvetica', 'normal'); doc.setFontSize(12);
+      doc.text(`Niveau : ${state.difficulty}`, pw / 2, 3.0, { align: 'center' });
+
+      const gridSize = 15, cellSize = gridSize / 9;
+      const sx = (pw - gridSize) / 2, sy = 4.2;
+
+      doc.setDrawColor(20, 20, 30);
+      doc.setLineWidth(0.02);
+      for (let i = 0; i <= 9; i++) {
+        doc.line(sx, sy + i * cellSize, sx + gridSize, sy + i * cellSize);
+        doc.line(sx + i * cellSize, sy, sx + i * cellSize, sy + gridSize);
+      }
+      doc.setLineWidth(0.08);
+      for (let i = 0; i <= 9; i += 3) {
+        doc.line(sx, sy + i * cellSize, sx + gridSize, sy + i * cellSize);
+        doc.line(sx + i * cellSize, sy, sx + i * cellSize, sy + gridSize);
+      }
+
+      doc.setFont('courier', 'bold'); doc.setFontSize(14);
+      for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++) {
+        const val = state.puzzle[r][c];
+        if (val !== 0) {
+          doc.text(String(val), sx + c * cellSize + cellSize / 2, sy + r * cellSize + cellSize / 2 + 0.12, { align: 'center' });
+        }
+      }
+
+      // Solution page
+      doc.addPage();
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(24);
+      doc.text('Sudoku - Solution', pw / 2, 2.2, { align: 'center' });
+      doc.setFont('helvetica', 'normal'); doc.setFontSize(12);
+      doc.text(`Niveau : ${state.difficulty}`, pw / 2, 3.0, { align: 'center' });
+
+      const sy2 = 4.2;
+      doc.setDrawColor(20, 20, 30);
+      doc.setLineWidth(0.02);
+      for (let i = 0; i <= 9; i++) {
+        doc.line(sx, sy2 + i * cellSize, sx + gridSize, sy2 + i * cellSize);
+        doc.line(sx + i * cellSize, sy2, sx + i * cellSize, sy2 + gridSize);
+      }
+      doc.setLineWidth(0.08);
+      for (let i = 0; i <= 9; i += 3) {
+        doc.line(sx, sy2 + i * cellSize, sx + gridSize, sy2 + i * cellSize);
+        doc.line(sx + i * cellSize, sy2, sx + i * cellSize, sy2 + gridSize);
+      }
+      doc.setFont('courier', 'bold'); doc.setFontSize(14);
+      for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++) {
+        doc.text(String(state.solution[r][c]), sx + c * cellSize + cellSize / 2, sy2 + r * cellSize + cellSize / 2 + 0.12, { align: 'center' });
+      }
+
+      doc.save(`sudoku-${state.difficulty}.pdf`);
+    }
+
+    // ─── Init ───
+    render();
+  })();
+  </script>
+</body>
+</html>

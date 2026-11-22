@@ -1,40 +1,84 @@
-# Mots Mêlés
+# Mots Mêlés — Jeux de grilles
 
-Un outil web pour créer des **grilles de mots mêlés** (motpes) : composez votre grille, prévisualisez-la, puis téléchargez-la en PDF prête à imprimer.
-
----
-
-## 🚀 Features actuelles
-
-- **Composition en ligne** : entrez votre liste de mots et la taille de la grille
-- **Génération automatique** : algorithme de placement intelligent avec retour d'erreur
-- **Aperçu visuel** : prévisualisation en temps réel de votre grille
-- **Export PDF** : download d'un PDF optimisé pour l'impression
+Une collection de **jeux de grilles** en ligne : Mots mêlés, Sudoku et Mots croisés. Chaque jeu génère des grilles aléatoires et permet de les exporter en PDF prêtes à imprimer.
 
 ---
 
-## 📝 Todo / Nice to have
+## 🎮 Les jeux
 
-### ✅ À faire
+### 🔤 Mots mêlés (`wordsearch/`)
+Composez votre grille ou choisissez parmi **30+ thèmes** (animaux, pays, fruits, sciences…). La grille est générée automatiquement et exportable en PDF.
 
-- **Plusieurs mots sur une ligne** (max 2 selon la longueur de la grille)
-- **UPPERCASE** Définir à upercase le textarea
-- **Créer des dictionnaires** (mots pré-chargés par catégorie)
-- **Créer des thèmes** (style visuel personnalisable — couleurs, typographie)
-- **Choisir une langue** (affincher le projet à plus de personnes via la multilinguisation)
+### 🔢 Sudoku (`sudoku/`)
+Générez des grilles de Sudoku à **solution unique** avec **4 niveaux de difficulté** (Facile, Moyen, Difficile, Expert). Mode notes, pavé numérique, détection d'erreurs et timer intégrés. Export PDF avec grille + solution.
+
+### ✏️ Mots croisés (`crossword/`)
+Générez des grilles de mots croisés avec **mots et définitions** par thème. Numérotation automatique, indices horizontaux et verticaux. Export PDF en 2 pages : grille à jouer + solution.
+
+---
+
+## 🚀 Features
+
+- **Génération automatique** : algorithmes de placement intelligent pour chaque type de jeu
+- **Aperçu visuel** : prévisualisation en temps réel avant export
+- **Export PDF** : téléchargement d'un PDF optimisé pour l'impression
+- **Thèmes** : 30+ catégories de mots pré-chargés (Mots mêlés et Mots croisés)
+- **Dictionnaire unifié** : `themes.json` partagé entre Mots mêlés et Mots croisés — 935 mots avec définitions sur 31 thèmes
+- **Difficultés** : 4 niveaux pour le Sudoku
+- **Mode notes** : Sudoku avec gestion des candidats
+- **Navigation clavier** : flèches + chiffres pour le Sudoku
+
+---
+
+## 📝 Todo / Améliorations
+
+- **Choisir une langue** (ouvrir le projet à plus de personnes via la multilinguisation)
 - **Passer sur Tailwind CSS** (remplacer le CSS personnalisé par des classes Tailwind)
-- **Correction** (rajouter un PDF avec la corection)
-- **Dissocier JS et CSS du HTML** (réorganiser le code en fichiers séparés pour une meilleure structure)
+- **Dissocier JS et CSS du HTML** (réorganiser le code en fichiers séparés)
+- **Sauvegarde locale** (reprendre une partie en cours)
+- **Nouveaux jeux** (Kakuro, Scrabble…)
 
 ---
 
 ## 🛠️ Utilisation
 
-1. Ouvrir `mots-meles.html` dans un navigateur
-2. Entrer votre **liste de mots** (un mot par ligne)
-3. Choisir la **taille de la grille** (8 à 24 cases - 16 par défaut)
-4. Cliquer sur **Générer la grille** pour générer la fiche
-5. Télécharger le PDF quand vous êtes satisfait
+Ouvrez `index.html` dans un navigateur — aucune installation nécessaire. La page d'accueil propose les trois jeux.
+
+### Mots mêlés
+1. Cliquez sur **🔤 Mots mêlés**
+2. Choisissez un thème ou entrez vos propres mots
+3. Ajustez la taille de la grille
+4. Cliquez sur **Générer** puis **Exporter en PDF**
+
+### Sudoku
+1. Cliquez sur **🔢 Sudoku**
+2. Choisissez un niveau de difficulté
+3. Jouez directement ou cliquez sur **Exporter en PDF**
+
+### Mots croisés
+1. Cliquez sur **✏️ Mots croisés**
+2. Choisissez un thème
+3. Cliquez sur **Générer** puis **Exporter en PDF**
+
+---
+
+## 📁 Structure
+
+```
+index.html          ← Page d'accueil (choix du jeu)
+wordsearch/         ← Jeu de mots mêlés
+  index.html
+  themes.json
+  dico.txt
+sudoku/             ← Jeu de Sudoku
+  index.html
+crossword/          ← Jeu de mots croisés
+  index.html
+  themes.json
+  dico.txt
+themes.json         ← Référence (racine)
+dico.txt            ← Référence (racine)
+```
 
 ---
 

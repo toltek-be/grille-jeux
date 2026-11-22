@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mots mêlés</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      --paper: #F7F2E7;
+      --paper-line: #E4DAC4;
+      --ink: #1F2A3C;
+      --ink-soft: #55627A;
+      --accent: #B3492E;
+      --accent-soft: #F0D9CE;
+      --ring: #C9BFA5;
+      --green: #2F6B4F;
+      --green-soft: #D4EDDA;
+
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      background-image: repeating-linear-gradient(
+        to bottom, transparent, transparent 27px, var(--paper-line) 28px
+      );
+      padding: 36px 24px 60px;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .wrap { max-width: 980px; margin: 0 auto; }
+
+    .head { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+    .title {
+      font-size: 30px; font-weight: 700; margin: 0; letter-spacing: -0.01em;
+    }
+    .sub {
+      font-size: 14.5px; color: var(--ink-soft); margin: 6px 0 30px 0; max-width: 46ch;
+    }
+
+    .grid-layout {
+      display: grid;
+      grid-template-columns: minmax(260px, 380px) 1fr;
+      gap: 26px;
+    }
+    @media (max-width: 760px) {
+      .grid-layout { grid-template-columns: 1fr; }
+    }
+
+    .panel {
+      background: #FFFEFB;
+      border: 2px solid var(--ink);
+      box-shadow: 6px 6px 0 var(--ink);
+      padding: 22px;
+    }
+
+    .field { margin-bottom: 18px; }
+    .label {
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-size: 13.5px; font-weight: 700; margin-bottom: 7px;
+    }
+    .count { font-weight: 400; color: var(--ink-soft); font-size: 12.5px; }
+
+    .input, .textarea {
+      width: 100%; border: 1.5px solid var(--ring); background: var(--paper);
+      font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: var(--ink);
+      padding: 10px 11px; border-radius: 3px;
+    }
+    .input:focus, .textarea:focus, .num:focus {
+      outline: none; border-color: var(--ink);
+    }
+    .textarea { resize: vertical; min-height: 220px; line-height: 1.6; }
+
+    .size-row { display: flex; align-items: center; gap: 10px; }
+    .num {
+      width: 70px; border: 1.5px solid var(--ring); background: var(--paper);
+      font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: var(--ink);
+      padding: 8px 10px; border-radius: 3px;
+    }
+    .size-hint { font-size: 12px; color: var(--ink-soft); }
+
+    .btn {
+      display: block; width: 100%; border: 2px solid var(--ink); background: var(--accent);
+      color: #FFF9F4; font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      font-size: 15px; padding: 13px 16px; cursor: pointer;
+      box-shadow: 4px 4px 0 var(--ink); transition: transform .08s ease, box-shadow .08s ease;
+    }
+    .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+    .btn:active { transform: translate(0, 0); box-shadow: 2px 2px 0 var(--ink); }
+    .btn.ghost {
+      background: var(--paper); color: var(--ink); margin-top: 10px;
+    }
+    .btn:disabled {
+      opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    .status { min-height: 18px; font-size: 12.5px; margin-top: 10px; }
+    .status.ok { color: var(--green); }
+    .status.warn { color: var(--accent); }
+
+    .preview-head {
+      display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;
+    }
+    .preview-title { font-size: 16px; font-weight: 700; }
+    .preview-hint { font-size: 12px; color: var(--ink-soft); }
+
+    #canvas-wrap { display: flex; justify-content: center; margin-bottom: 20px; overflow-x: auto; }
+    #canvas { image-rendering: crisp-edges; }
+
+    .empty {
+      font-size: 13.5px; color: var(--ink-soft); text-align: center; padding: 60px 10px;
+      border: 1.5px dashed var(--ring);
+    }
+
+    .wordlist-title { font-size: 13px; font-weight: 700; margin: 0 0 10px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+    .chip {
+      font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;
+      border: 1.5px solid var(--ink); padding: 4px 9px; border-radius: 3px;
+      background: var(--accent-soft);
+    }
+    .chip.failed {
+      background: transparent; border-style: dashed; color: var(--ink-soft);
+      text-decoration: line-through;
+    }
+
+    .back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Space Grotesk', sans-serif; font-size: 13.5px; font-weight: 700;
+      color: var(--ink-soft); background: none; border: none; cursor: pointer;
+      margin-bottom: 18px; padding: 0; transition: color .15s;
+      text-decoration: none;
+    }
+    .back:hover { color: var(--accent); }
+
+    select.input {
+      appearance: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="app-root"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+  (function () {
+    const root = document.getElementById('app-root');
+
+    // ─── Dictionnaire ───
+    const BASE_DICTIONARY = {
+      "Animaux de la ferme": ["VACHE","COCHON","POULE","MOUTON","CHEVAL","CANARD","DINDE","LAPIN","CHEVRE","ANE","OIE","COQ","TAUREAU","POULAIN","AGNEAU"],
+      "Informatique": ["PYTHON","ALGORITHME","VARIABLE","BOUCLE","FONCTION","LISTE","CLASSE","OBJET","MODULE","SERVEUR","RESEAU","CLAVIER","SOURIS","FICHIER","NAVIGATEUR"],
+      "Fruits": ["POMME","POIRE","BANANE","ORANGE","CITRON","FRAISE","CERISE","ABRICOT","PECHE","RAISIN","MELON","ANANAS","KIWI","FRAMBOISE","PRUNE"],
+      "Pays": ["FRANCE","BELGIQUE","ITALIE","ESPAGNE","ALLEMAGNE","PORTUGAL","SUISSE","CANADA","BRESIL","JAPON","EGYPTE","MAROC","NORVEGE","GRECE","IRLANDE"],
+      "Sports": ["FOOTBALL","TENNIS","NATATION","BASKET","RUGBY","CYCLISME","ESCRIME","JUDO","GOLF","HANDBALL","VOLLEY","BOXE","SKI","ATHLETISME","AVIRON"],
+      "Corps humain": ["TETE","BRAS","JAMBE","MAIN","PIED","DOIGT","COUDE","GENOU","EPAULE","POIGNET","CHEVILLE","THORAX","ABDOMEN","FRONT","NUQUE"],
+      "Couleurs": ["ROUGE","BLEU","VERT","JAUNE","ORANGE","VIOLET","NOIR","BLANC","ROSE","MARRON","GRIS","DORE","ARGENT","TURQUOISE","MAUVE"],
+      "Vetements": ["CHEMISE","PANTALON","ROBE","JUPE","MAILLOT","BONNET","ECHARPE","GANTS","CHAUSSETTES","BOTTES","SANDALE","CRAVATE","CEINTURE","BOUTON","POCHE"],
+      "Emotions": ["JOIE","TRISTESSE","COLERE","PEUR","AMOUR","SURPRISE","HONTE","FIERTE","COURAGE","ESPOIR","CALME","ANXIETE","JALOUSIE","GRATITUDE","SERENITE"],
+      "Outils": ["MARTEAU","TOURNEVIS","PINCE","SCIE","CLE","NIVEAU","METRE","COUTEAU","LIME","ETAU","PERCEUSE","PLANE","RABOT","CISEAUX","LEVIER"],
+      "Meteo": ["SOLEIL","PLUIE","NUAGE","VENT","ORAGE","NEIGE","GRELE","BROUILLARD","ARCENCIEL","TEMPETE","CYCLONE","RAFALE","ECLAIR","TONNERRE","FOUDRE"],
+      "Materiaux": ["BOIS","FER","ACIER","VERRE","PLASTIQUE","BETON","BRIQUE","CUIR","CAOUTCHOUC","ALUMINIUM","CUIVRE","OR","ARGENT","MARBRE","GRANIT"],
+      "Boissons": ["EAU","CAFE","THE","JUS","LAIT","BIERE","VIN","CIDRE","SODA","CHOCOLAT","INFUSION","SIROP","MILKSHAKE","COCKTAIL","LIMONADE"],
+      "Jouets": ["POUPEE","BALLON","VOITURE","PUZZLE","LEGO","DINOSAURE","OURSON","TROTTEUR","TOUPIE","MAISON","CUBE","FUSEE","AVION","TRAIN","ROBOT"],
+      "Planetes": ["MERCURE","VENUS","TERRE","MARS","JUPITER","SATURNE","URANUS","NEPTUNE","PLUTON","SOLEIL","LUNE","METEORE","COMETE","GALAXIE","NEBULEUSE"]
+    };
+
+    let baseThemes = BASE_DICTIONARY;
+    const DICTIONARY = JSON.parse(JSON.stringify(BASE_DICTIONARY));
+    const FILE_THEME = "Fichier Local (dico.txt)";
+    let lastResult = null;
+
+    function cleanWord(w) {
+      return w.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().replace(/[^A-Z]/g, '');
+    }
+
+    function setStatus(text, kind) {
+      const el = root.querySelector('#status');
+      if (el) { el.textContent = text; el.className = 'status' + (kind ? ' ' + kind : ''); }
+    }
+
+    function refreshThemeSelect() {
+      const sel = root.querySelector('#theme-select');
+      if (!sel) return;
+      const prev = sel.value;
+      sel.innerHTML = '<option value="">Tous les thèmes</option>' +
+        Object.keys(DICTIONARY).map(t => `<option value="${t}">${t}</option>`).join('');
+      if (prev && DICTIONARY[prev]) sel.value = prev;
+    }
+
+    function loadThemes() {
+      return fetch('themes.json').then(r => { if (!r.ok) throw 0; return r.json(); })
+        .then(data => {
+          const themes = {};
+          Object.keys(data || {}).forEach(name => {
+            if (!Array.isArray(data[name])) return;
+            const words = [...new Set(data[name].map(item => {
+              const w = typeof item === 'string' ? item : item.w;
+              return cleanWord(w);
+            }).filter(w => w.length > 1))];
+            if (words.length > 0) themes[name] = words;
+          });
+          if (Object.keys(themes).length === 0) throw 0;
+          Object.keys(DICTIONARY).forEach(n => delete DICTIONARY[n]);
+          Object.assign(DICTIONARY, JSON.parse(JSON.stringify(themes)));
+          baseThemes = themes;
+          refreshThemeSelect();
+        }).catch(() => { console.log("themes.json non trouvé"); });
+    }
+
+    function loadDico() {
+      return fetch('dico.txt').then(r => { if (!r.ok) throw 0; return r.text(); })
+        .then(text => {
+          const words = [...new Set(text.split(/\r?\n/).map(cleanWord).filter(w => w.length > 1))];
+          if (words.length > 0) { DICTIONARY[FILE_THEME] = words; refreshThemeSelect(); }
+        }).catch(() => {});
+    }
+
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+      return a;
+    }
+
+    function getWords() {
+      const ta = root.querySelector('#words-input');
+      if (!ta) return [];
+      return ta.value.split(/\s+/).map(cleanWord).filter((w, i, arr) => w && arr.indexOf(w) === i);
+    }
+
+    function buildGrid(words, size) {
+      const grid = Array.from({ length: size }, () => Array(size).fill(''));
+      const directions = [[0,1],[1,0],[1,1],[-1,1],[0,-1],[-1,0],[-1,-1],[1,-1]];
+      const sorted = [...words].sort((a, b) => b.length - a.length);
+      const placed = [], failed = [];
+      for (const word of sorted) {
+        if (word.length > size) { failed.push(word); continue; }
+        let ok = false, attempts = 0;
+        while (!ok && attempts < 300) {
+          attempts++;
+          const [dr, dc] = directions[Math.floor(Math.random() * directions.length)];
+          const sr = Math.floor(Math.random() * size), sc = Math.floor(Math.random() * size);
+          const er = sr + dr * (word.length - 1), ec = sc + dc * (word.length - 1);
+          if (er < 0 || er >= size || ec < 0 || ec >= size) continue;
+          let conflict = false;
+          for (let i = 0; i < word.length; i++) {
+            const r = sr + dr * i, c = sc + dc * i;
+            if (grid[r][c] !== '' && grid[r][c] !== word[i]) { conflict = true; break; }
+          }
+          if (conflict) continue;
+          for (let i = 0; i < word.length; i++) { grid[sr + dr * i][sc + dc * i] = word[i]; }
+          placed.push(word); ok = true;
+        }
+        if (!ok) failed.push(word);
+      }
+      const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      for (let r = 0; r < size; r++) for (let c = 0; c < size; c++)
+        if (grid[r][c] === '') grid[r][c] = alphabet[Math.floor(Math.random() * alphabet.length)];
+      return { grid, placed, failed };
+    }
+
+    function drawCanvas(grid, size) {
+      const cell = size > 18 ? 26 : 32;
+      const canvas = document.createElement('canvas');
+      canvas.id = 'canvas';
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = size * cell * dpr; canvas.height = size * cell * dpr;
+      canvas.style.width = (size * cell) + 'px'; canvas.style.height = (size * cell) + 'px';
+      const ctx = canvas.getContext('2d'); ctx.scale(dpr, dpr);
+      ctx.fillStyle = '#FFFEFB'; ctx.fillRect(0, 0, size * cell, size * cell);
+      ctx.strokeStyle = '#1F2A3C'; ctx.lineWidth = 1;
+      for (let i = 0; i <= size; i++) {
+        ctx.beginPath(); ctx.moveTo(0, i * cell); ctx.lineTo(size * cell, i * cell); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(i * cell, 0); ctx.lineTo(i * cell, size * cell); ctx.stroke();
+      }
+      ctx.fillStyle = '#1F2A3C';
+      ctx.font = `600 ${Math.round(cell * 0.42)}px 'IBM Plex Mono', monospace`;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      for (let r = 0; r < size; r++) for (let c = 0; c < size; c++)
+        ctx.fillText(grid[r][c], c * cell + cell / 2, r * cell + cell / 2 + 1);
+      return canvas;
+    }
+
+    function renderPreview(result) {
+      const { grid, placed, failed, size } = result;
+      const pb = root.querySelector('#preview-body');
+      const ph = root.querySelector('#preview-hint');
+      if (!pb) return;
+      pb.innerHTML = '';
+      const cw = document.createElement('div'); cw.id = 'canvas-wrap';
+      cw.appendChild(drawCanvas(grid, size)); pb.appendChild(cw);
+      const lw = document.createElement('div');
+      const lt = document.createElement('p'); lt.className = 'wordlist-title'; lt.textContent = 'Mots à trouver'; lw.appendChild(lt);
+      const chips = document.createElement('div'); chips.className = 'chips';
+      [...placed].sort().forEach(w => { const ch = document.createElement('span'); ch.className = 'chip'; ch.textContent = w; chips.appendChild(ch); });
+      failed.forEach(w => { const ch = document.createElement('span'); ch.className = 'chip failed'; ch.textContent = w; chips.appendChild(ch); });
+      lw.appendChild(chips); pb.appendChild(lw);
+      if (ph) ph.textContent = `${size} × ${size} · ${placed.length} mot${placed.length !== 1 ? 's' : ''} placé${placed.length !== 1 ? 's' : ''}`;
+    }
+
+    // ─── Rendu principal ───
+    root.innerHTML = `
+      <div class="wrap">
+        <a href="../index.html" class="back">← Accueil</a>
+        <div class="head">
+          <h1 class="title">Créateur de mots mêlés</h1>
+        </div>
+        <p class="sub">Composez une grille, prévisualisez-la, puis téléchargez-la en PDF prête à imprimer.</p>
+        <div class="grid-layout">
+          <div class="panel">
+            <div class="field">
+              <div class="label">Titre du thème</div>
+              <input class="input" id="title-input" type="text" placeholder="Ex : Animaux de la ferme" value="Mots Mêlés">
+            </div>
+            <div class="field">
+              <div class="label">Taille de la grille</div>
+              <div class="size-row">
+                <input class="num" id="size-input" type="number" min="8" max="24" value="18">
+                <span class="size-hint">cases (8 à 24)</span>
+              </div>
+            </div>
+            <div class="field">
+              <div class="label">Tirage aléatoire</div>
+              <select class="input" id="theme-select"></select>
+              <div class="size-row" style="margin-top:8px">
+                <input class="num" id="nb-input" type="number" min="3" max="30" value="15">
+                <span class="size-hint">mots à tirer</span>
+              </div>
+              <button class="btn ghost" id="random-btn" type="button">🎲 Grille aléatoire</button>
+            </div>
+            <div class="field">
+              <div class="label">
+                <span>Liste des mots (un par ligne)</span>
+                <span class="count" id="word-count">0 mot</span>
+              </div>
+              <textarea class="textarea" id="words-input"></textarea>
+            </div>
+            <button class="btn" id="generate-btn">Générer la grille</button>
+            <button class="btn ghost" id="pdf-btn" disabled>Télécharger le PDF</button>
+            <div class="status" id="status"></div>
+          </div>
+          <div class="panel">
+            <div class="preview-head">
+              <span class="preview-title">Aperçu</span>
+              <span class="preview-hint" id="preview-hint"></span>
+            </div>
+            <div id="preview-body">
+              <div class="empty">Votre grille apparaîtra ici après génération.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    refreshThemeSelect();
+    const titleInput = root.querySelector('#title-input');
+    const sizeInput = root.querySelector('#size-input');
+    const wordsInput = root.querySelector('#words-input');
+    const wordCountEl = root.querySelector('#word-count');
+    const generateBtn = root.querySelector('#generate-btn');
+    const pdfBtn = root.querySelector('#pdf-btn');
+    const themeSelect = root.querySelector('#theme-select');
+    const nbInput = root.querySelector('#nb-input');
+    const randomBtn = root.querySelector('#random-btn');
+
+    wordsInput.value = ["PYTHON","ALGORITHME","VARIABLE","BOUCLE","FONCTION","LISTE","DICTIONNAIRE","CLASSE","OBJET","MODULE"].join("\n");
+
+    function updateWordCount() {
+      const words = getWords();
+      wordCountEl.textContent = words.length + (words.length === 1 ? ' mot' : ' mots');
+    }
+    wordsInput.addEventListener('input', updateWordCount);
+    updateWordCount();
+
+    randomBtn.addEventListener('click', () => {
+      const theme = themeSelect.value;
+      const size = Math.min(Math.max(parseInt(sizeInput.value, 10) || 15, 8), 24);
+      let pool = [];
+      if (theme && DICTIONARY[theme]) pool = DICTIONARY[theme];
+      else pool = Object.values(baseThemes).flat();
+      const validPool = [...new Set(pool)].filter(w => w.length <= size);
+      if (validPool.length === 0) { setStatus("Aucun mot ne correspond à cette taille de grille.", "warn"); return; }
+      const n = Math.min(Math.max(parseInt(nbInput.value, 10) || 10, 1), validPool.length);
+      const selected = shuffle(validPool).slice(0, n);
+      wordsInput.value = selected.join('\n');
+      titleInput.value = theme || 'Mots Mêlés';
+      updateWordCount();
+      generateBtn.click();
+    });
+
+    generateBtn.addEventListener('click', () => {
+      const words = getWords();
+      if (words.length === 0) { setStatus("Veuillez entrer au moins un mot.", "warn"); return; }
+      let size = parseInt(sizeInput.value, 10);
+      if (!size || size < 8) size = 8; if (size > 24) size = 24; sizeInput.value = size;
+      const { grid, placed, failed } = buildGrid(words, size);
+      lastResult = { grid, placed, failed, size, title: titleInput.value.trim() || 'Mots Mêlés' };
+      renderPreview(lastResult);
+      pdfBtn.disabled = false;
+      if (failed.length > 0) setStatus(`Grille générée — ${failed.length} mot(s) n'a/ont pas pu être placé(s).`, 'warn');
+      else setStatus('Grille générée avec succès.', 'ok');
+    });
+
+    pdfBtn.addEventListener('click', () => {
+      if (!lastResult) return;
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ unit: 'cm', format: 'a4' });
+      const pageWidth = 21, pageHeight = 29.7;
+      const { grid, placed, size, title } = lastResult;
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(24);
+      doc.text(`Thème : ${title}`, pageWidth / 2, 2.4, { align: 'center' });
+      doc.setFont('helvetica', 'normal'); doc.setFontSize(12);
+      doc.text('Retrouvez les mots suivants dans la grille :', pageWidth / 2, 3.3, { align: 'center' });
+      const gridSizeCm = 16, cellSize = gridSizeCm / size;
+      const startX = (pageWidth - gridSizeCm) / 2, startY = 4.4;
+      doc.setDrawColor(20, 20, 30); doc.setLineWidth(0.02);
+      for (let i = 0; i <= size; i++) {
+        doc.line(startX, startY + i * cellSize, startX + gridSizeCm, startY + i * cellSize);
+        doc.line(startX + i * cellSize, startY, startX + i * cellSize, startY + gridSizeCm);
+      }
+      doc.setFont('courier', 'bold'); doc.setFontSize(Math.max(7, 20 - size) + 3);
+      for (let r = 0; r < size; r++) for (let c = 0; c < size; c++)
+        doc.text(grid[r][c], startX + c * cellSize + cellSize / 2, startY + r * cellSize + cellSize / 2 + 0.12, { align: 'center' });
+      const listY = startY + gridSizeCm + 1.1;
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(14); doc.text('Mots à trouver :', startX, listY);
+      doc.setFont('helvetica', 'normal'); doc.setFontSize(12);
+      const sortedWords = [...placed].sort(), maxCols = 3, colWidth = (pageWidth - 2 * startX) / maxCols;
+      sortedWords.forEach((word, i) => {
+        const col = i % maxCols, row = Math.floor(i / maxCols);
+        const x = startX + col * colWidth, y = listY + 0.8 + row * 0.6;
+        if (y < pageHeight - 1.5) doc.text(`- ${word}`, x, y);
+      });
+      doc.save(`${title.replace(/\s+/g, '_')}.pdf`);
+    });
+
+    // Load themes
+    loadThemes().then(() => loadDico());
+  })();
+  </script>
+</body>
+</html>
